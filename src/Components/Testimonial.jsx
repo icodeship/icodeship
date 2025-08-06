@@ -64,7 +64,7 @@ function Testimonial() {
             </p>
             <div className="row  ">
               <div ref={textRef}>
-                <p className="font-size-20 pe-lg-5 me-lg-5 font_weight_400 font_color_light_grey text-justify text-lg-start line_height_30 ">
+                <p className="font-size-20 pe-lg-5 me-lg-5 font_weight_400 font_color_light_grey text-md-justify text-lg-start line_height_30 ">
                   "{testimonial.text}"
                 </p>
                 <div className="row mt-4">

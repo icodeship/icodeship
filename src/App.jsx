@@ -181,29 +181,29 @@ function App() {
   const isFirstLoad = useRef(true);
   const isLanding = location.pathname === "/landing";
 
-  const [triggerReload, setTriggerReload] = useState(false);
+  // const [triggerReload, setTriggerReload] = useState(false);
 
-  useEffect(() => {
-    if (isFirstLoad.current) {
-      isFirstLoad.current = false;
-    } else {
-      const reloadPaths = ["/solutions", "/"];
-      if (reloadPaths.includes(location.pathname)) {
-        setTriggerReload(true);
-        setTimeout(() => {
-          document.body.innerHTML = ""; // optional: wipe DOM
-          window.location.reload();
-        }, 300); // Give loader 300ms to render
-      }
-    }
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   if (isFirstLoad.current) {
+  //     isFirstLoad.current = false;
+  //   } else {
+  //     const reloadPaths = ["/solutions", "/"];
+  //     if (reloadPaths.includes(location.pathname)) {
+  //       setTriggerReload(true);
+  //       setTimeout(() => {
+  //         document.body.innerHTML = ""; // optional: wipe DOM
+  //         window.location.reload();
+  //       }, 300); // Give loader 300ms to render
+  //     }
+  //   }
+  // }, [location.pathname]);
   
   
 
   return (
     <>
       {!isLanding && <ClientOnlyHeader />}
-      <PageWrapper triggerReload={triggerReload}>
+      <PageWrapper >
         <Routes key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

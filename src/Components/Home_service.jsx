@@ -18,8 +18,8 @@ function Home_service() {
               <p className="font-size-20 font_weight_500">How we can help you</p>
               <p className="font-size-65 font_weight_600 line_height_80 m-0">Services</p>
               <p className="font-size-65 font_weight_600 line_height_80 mb-2">We offer</p>
-              <br />
-              <p className="service_text font-size-24 line_height_38">
+              {/* <br /> */}
+              <p className="service_text font-size-24 xl:line_height_38">
                 We offer a comprehensive range of software development services tailored to meet
                 the unique needs of your business. A full-service creative agency designing and
                 building inventive digital experiences across all platforms and brand{" "}

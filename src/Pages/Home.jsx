@@ -362,12 +362,12 @@ function Home() {
             className="img-fluid position-relative pt-0 pt-lg-5"
           />
           <div className="position-absolute d-flex justify-content-center align-items-center flex-column map_text">
-            <p className="font-size-40 font_weight_400 text-center mx-3 mx-lg-5">
+            <p className="font-size-40 font_weight_400 md:text-center mx-3 mx-lg-5">
               Since our founding in 2021, Codeship has rapidly{" "}
               <br className="d-none d-md-block" /> grown into a dynamic and
               thriving company.
             </p>
-            <p className="font-size-40 font_weight_400 text-center mx-3">
+            <p className="font-size-40 font_weight_400 md:text-center mx-3">
               With a shared dedication to innovation and a{" "}
               <br className="d-none d-md-block" /> customer-centric approach,
               our team brings a <br className="d-none d-md-block" /> wealth of

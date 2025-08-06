@@ -235,13 +235,19 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
             show={show}
             onHide={handleClose}
             placement="start"
-            className="offcanvas-fullscreen offcanvas-bounce"
+            className=" offcanvas-bounce"
           >
              <div className="d-flex  gap-3">
-              <Offcanvas.Header closeButton={false} className="p-0" >
-                <div className="d-flex gap-4  w-100">
+              <Offcanvas.Header closeButton={false} className="p-0 w-100" >
+                <div className="d-flex justify-content-around gap-4  w-100">
                   {/* Top row with close button */}
-                  <div className="mt-5 pt-3 ms-3">
+
+                  <div className="d-flex flex-column align-items-center justify-content-center  mt-2">
+                   
+                      <img src={logo} alt="Codeship Home" className="" style={{maxWidth: "200px"}} />
+
+                  </div>
+                  <div className="mt-2 pt-3 ms-3">
                     <button
                       type="button"
                       className="btn-close font-size-37 font_weight_700 outline-none "
@@ -253,11 +259,7 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
                   </div>
 
                   {/* Center logo and title */}
-                  <div className="d-flex flex-column align-items-center justify-content-center mt-5">
-                   
-                      <img src={logo} alt="Codeship Home" className="" style={{maxWidth: "200px"}} />
-
-                  </div>
+                  
                 </div>
               </Offcanvas.Header>
             </div>
