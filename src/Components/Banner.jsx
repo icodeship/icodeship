@@ -9,7 +9,7 @@ const Banner = ({ text, image }) => {
         <div className="row flex-column-reverse flex-lg-row mt-5">
           <div className="col-12 col-lg-7 col-md-12 col-sm-12 d-flex justify-content-center  align-items-center">
             <div>
-              <p className="font-size-54 text-center text-lg-start text-md-center font_weight_600 pb-3 pt-3 ">
+              <p className="font-size-54 text-md-center text-lg-start text-md-center font_weight_600 pb-3 pt-3 ">
                 {text}
               </p>
               <div className=" d-flex justify-content-center justify-content-lg-start">

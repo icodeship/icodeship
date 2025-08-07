@@ -83,7 +83,7 @@ const Capable_service = () => {
           <div className="row flex-column-reverse flex-lg-row mt-md-5">
             <div className="col-12 col-lg-7 col-md-12 col-sm-12 d-flex justify-content-center align-items-center">
               <div>
-                <p className="font-size-54 text-center text-lg-start text-md-center font_weight_500 pt-3 pt-md-0 p-md-3 m-0">
+                <p className="font-size-54 text-md-center text-lg-start text-md-center font_weight_500 pt-3 pt-md-0 p-md-3 m-0">
                   {service.banner.title}
                 </p>
                 <div className="d-flex justify-content-center justify-content-lg-start justify-content-md-center">
@@ -109,7 +109,7 @@ const Capable_service = () => {
       </section>
       <Brands />
       {/* Why choose us */}
-      <section className="mt-5">
+      <section className="">
         <Container className="my_container ">
           <div className="row justify-content-between">
             <div className="col-lg-5 col-md-12 col-12">
@@ -139,7 +139,7 @@ const Capable_service = () => {
       {/* Software developement need */}
       <section className="software_container_section d-none d-md-block d-lg-block d-xl-block pb-5">
         <Container className="my_container position-relative software_container">
-          <p className="font-size-62 text-center font_weight_600">
+          <p className="font-size-62 text-md-center font_weight_600">
             {service.software_need}
           </p>
           <div className="d-flex justify-content-center mt-5 position-relative">
@@ -181,7 +181,7 @@ const Capable_service = () => {
 
       <section className="d-lg-none d-md-none d-block">
         <Container>
-          <p className="font-size-62 text-center font_weight_600">
+          <p className="font-size-62 text-md-center font_weight_600">
             {service.software_need}
           </p>
           <Swiper
@@ -234,7 +234,7 @@ const Capable_service = () => {
 
       <section>
         <Container className="my_container why_choose_us pt-0">
-          <div className="row mt-5 mb-5 mt-lg-0 justify-content-between">
+          <div className="row mt-2 mb-2 mt-lg-0 justify-content-between">
             <div className="col-lg-5  col-12">
               <p className="font-size-25 font_weight_300 mt-md-5 mt-lg-5 mt-xl-0 m-0">
                 Benefits of
@@ -308,7 +308,7 @@ const Capable_service = () => {
                         {item.series}
                       </p>
                     </div>
-                    <p className="text-justify px-4 px-md-4 font-size-18 font_weight_300">
+                    <p className="text-md-justify px-4 px-md-4 font-size-18 font_weight_300">
                       {item.description}
                     </p>
                   </div>
@@ -322,7 +322,7 @@ const Capable_service = () => {
 
       <section>
         <Container className="my_container">
-          <p className="font-size-40 font_weight_600 text-center mt-5">
+          <p className="font-size-40 font_weight_600 text-md-center mt-5">
             Frequently Asked Questions
           </p>
           <div className="row mt-5">

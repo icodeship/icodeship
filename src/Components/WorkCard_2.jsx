@@ -47,7 +47,7 @@ const WorkCard_2 = ({ index }) => {
           <p className="font-size-20 w-75">{data.description}</p>
           <div className="d-flex flex-wrap gap-4 font-size-18 font_color_light_grey">
             {data.tags.map((tag, i) => (
-              <p key={i} className="text-center m-0">
+              <p key={i} className="text-md-center m-0">
                 {tag}
               </p>
             ))}

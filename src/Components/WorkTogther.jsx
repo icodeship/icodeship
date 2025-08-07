@@ -23,7 +23,7 @@ function WorkTogther() {
     <>
       <MetaTags {...metaContent} />
       <section className="py-3 py-md-5" >
-        <Container className="my-5">
+        <Container className="">
           <div className="work_together_card w-100 overflow-hidden h-auto shadow bg-black position-relative  ">
             <img
               src={Swirl}

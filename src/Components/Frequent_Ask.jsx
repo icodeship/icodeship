@@ -17,7 +17,7 @@ function Frequent_Ask() {
   return (
     <section>
       <Container className='my_container'>
-        <p className='font-size-40 font_weight_600 text-center mt-5'>Frequently Asked Questions</p>
+        <p className='font-size-40 font_weight_600 text-md-center mt-5'>Frequently Asked Questions</p>
         <div className="row mt-5">
 
           {/* Left Column */}

@@ -118,7 +118,7 @@ function Footer() {
         </div>
       </section>
       <div
-        className="d-flex justify-content-center text-center  py-3 mt-4"
+        className="d-flex justify-content-center text-md-center  py-3 mt-4"
         style={{
           borderTop: "1px solid #ccc",
         }}

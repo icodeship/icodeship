@@ -71,7 +71,7 @@ const ScrollLockedCardStack = () => {
         ['--section-height-large']: `${Solution_Data.length * 90}vh`,
       }}
     >
-      <p className="text-center font-size-50 font_weight_500 pb-3 mt-5 pt-md-5 px-2">
+      <p className="text-md-center font-size-50 font_weight_500 pb-3 mt-5 pt-md-5 px-2">
         Smart Solutions For Your Business
         <br className="d-none d-lg-block" /> By Codeship.
       </p>

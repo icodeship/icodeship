@@ -119,7 +119,7 @@ function ProjectSwiperSlide({
         </div>
 
         {activeIndex === index && (
-          <div className="mobile-text-pop text-white text-center mt-3 d-md-none">
+          <div className="mobile-text-pop text-white text-md-center mt-3 d-md-none">
             <p className="fs-4 mb-2">{project.title}</p>
             <div className="d-flex flex-wrap justify-content-center gap-2">
               {project.tags.map((tag, i) => (
@@ -355,19 +355,19 @@ function Home() {
         <Banner text={text} image={image} />
         <Brands />
         {/* Map section */}
-        <section className="d-flex justify-content-center align-items-center py-5 my-4 pt-xl-5">
+        <section className="d-flex justify-content-center align-items-center  my-4 pt-xl-5">
           <img
             src={map}
             alt=""
             className="img-fluid position-relative pt-0 pt-lg-5"
           />
           <div className="position-absolute d-flex justify-content-center align-items-center flex-column map_text">
-            <p className="font-size-40 font_weight_400 md:text-center mx-3 mx-lg-5">
+            <p className="font-size-40 font_weight_400 md:text-md-center mx-3 mx-lg-5">
               Since our founding in 2021, Codeship has rapidly{" "}
               <br className="d-none d-md-block" /> grown into a dynamic and
               thriving company.
             </p>
-            <p className="font-size-40 font_weight_400 md:text-center mx-3">
+            <p className="font-size-40 font_weight_400 md:text-md-center mx-3">
               With a shared dedication to innovation and a{" "}
               <br className="d-none d-md-block" /> customer-centric approach,
               our team brings a <br className="d-none d-md-block" /> wealth of
@@ -509,7 +509,7 @@ function Home() {
                             );
                           })}
                         </div>
-                        <div className="text-center d-lg-flex d-none d-xl-none flex-column gap-4 justify-content-center mt-lg-3">
+                        <div className="text-md-center d-lg-flex d-none d-xl-none flex-column gap-4 justify-content-center mt-lg-3">
                           <button className="px-4 py-3 border-0 text-white blue_gradient rounded-pill border-0 mt-3 font-size-18 me-3">
                             View Live Demo
                           </button>
@@ -524,7 +524,7 @@ function Home() {
                         </div>
                       </div>
                       <div className="col-lg-9 col-xl-10 col-md-8 text-white">
-                        <div className="d-flex justify-content-center ms-lg-5 align-items-center flex-column text-center">
+                        <div className="d-flex justify-content-center ms-lg-5 align-items-center flex-column text-md-center">
                           <img
                             ref={imageRef}
                             rel="preload"
@@ -537,7 +537,7 @@ function Home() {
                             {softwareData[currentIndex].description}
                           </p>
                         </div>
-                        <div className="text-center d-lg-none d-xl-flex d-flex flex-wrap gap-3 justify-content-center mt-lg-3">
+                        <div className="text-md-center d-lg-none d-xl-flex d-flex flex-wrap gap-3 justify-content-center mt-lg-3">
                           <button className="px-4 py-3 text-white blue_gradient rounded-pill border-0 font-size-16">
                             View Live Demo
                           </button>
@@ -618,11 +618,11 @@ function Home() {
                     </div>
                     {/* middle text */}
                     <div className="d-flex  flex-column justify-content-center align-items-center  gap-3 py-sm-1 pt-0">
-                      <p className="font-size-46 text-white text-center font_weight_600  m-0 px-3   px-md-5 ">
+                      <p className="font-size-46 text-white text-md-center font_weight_600  m-0 px-3   px-md-5 ">
                         Amazing tech stack in{" "}
                         <br className="d-none d-lg-block" /> our pocket
                       </p>
-                      <p className="tech_text text-white font-size-18 font_weight_400 text-center d-lg-block  d-none px-3 m-0">
+                      <p className="tech_text text-white font-size-18 font_weight_400 text-md-center d-lg-block  d-none px-3 m-0">
                         Codeship turns your vision into scalable, secure
                         software. Our team experts deliver reliable solutions
                         that meet the highest standards in performance and code
@@ -771,7 +771,7 @@ function Home() {
                         </div>
 
                         {activeIndex === index && (
-                          <div className="mobile-text-pop text-white text-center mt-3 d-md-none">
+                          <div className="mobile-text-pop text-white text-md-center mt-3 d-md-none">
                             <p className="fs-4 mb-2">{project.title}</p>
                             <div className="d-flex flex-wrap justify-content-center gap-2">
                               {project.tags.map((tag, i) => (

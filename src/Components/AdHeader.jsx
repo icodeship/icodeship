@@ -10,7 +10,7 @@ const  Header = () => {
           {/* Mobile/Tablet layout */}
           
 
-          <div className="text-center">
+          <div className="text-md-center">
             <Navbar.Brand href="/">
               <img src={Logo} alt="Logo" className="img-fluid"  />
             </Navbar.Brand>

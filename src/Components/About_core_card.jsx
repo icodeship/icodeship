@@ -111,11 +111,11 @@ function About_core_card() {
                         className="img-fluid about_core_icon"
                       />
                     </div>
-                    <p className="pt-4 font-size-30 text-center font_weight_500 things_head font_color_light_blue">
+                    <p className="pt-4 font-size-30 text-md-center font_weight_500 things_head font_color_light_blue">
                       {item.title}
                     </p>
                     <div className="d-flex justify-content-center mt-3">
-                      <p className="font-size-20 text-center px-4">
+                      <p className="font-size-20 text-md-center px-4">
                         {item.description}
                       </p>
                     </div>
@@ -141,11 +141,11 @@ function About_core_card() {
                         className="img-fluid about_core_icon"
                       />
                     </div>
-                    <p className="pt-4 font-size-30 text-center font_weight_500 things_head font_color_light_blue">
+                    <p className="pt-4 font-size-30 text-md-center font_weight_500 things_head font_color_light_blue">
                       {item.title}
                     </p>
                     <div className="d-flex justify-content-center mt-3">
-                      <p className="font-size-20 text-center px-4">
+                      <p className="font-size-20 text-md-center px-4">
                         {item.description}
                       </p>
                     </div>

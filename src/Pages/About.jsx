@@ -157,7 +157,7 @@ function About() {
                         {item.title}
                       </p>
                       <div className="d-flex justify-content-center mt-3">
-                        <p className="font-size-20 text-center px-4">
+                        <p className="font-size-20 text-md-center px-4">
                           {item.description}
                         </p>
                       </div>
@@ -229,11 +229,11 @@ function About() {
       {/* Team members */}
       <section className="mt-4">
         <Container fluid>
-          <p className="font-size-58 text-center font_weight_600 mt-5">
+          <p className="font-size-58 text-md-center font_weight_600 mt-5">
             Simply, a legendary team
           </p>
           <div className="d-flex justify-content-center">
-            <p className="font-size-28 text-center">
+            <p className="font-size-28 text-md-center">
               Fueled by passion, expertise, and collaboration, our diverse team
               at Codeship is
               <br className="d-none d-lg-block" />
@@ -339,10 +339,10 @@ function About() {
       {/* Office */}
       <section>
         <Container className="my_container pt-3">
-          <p className="font-size-62 font_weight_600 text-center">
+          <p className="font-size-62 font_weight_600 text-md-center">
             Get a feeling at our office
           </p>
-          <p className="font-size-30 text-center">
+          <p className="font-size-30 text-md-center">
             Dynamic energy and collaborative spirit defines our workspace and
             its remarkable people.
           </p>

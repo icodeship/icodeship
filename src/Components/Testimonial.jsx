@@ -59,7 +59,7 @@ function Testimonial() {
         <div className="row d-flex flex-column-reverse flex-lg-row">
           {/* left side */}
           <div className="col-lg-7 col-12 ">
-            <p className="font-size-50 font_weight_600 mt-5">
+            <p className="font-size-50 font_weight_600 mt-md-5">
               Hear What Our <br /> Customers Are Saying!
             </p>
             <div className="row  ">

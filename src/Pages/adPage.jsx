@@ -224,7 +224,7 @@ export default function AdPage() {
               </div>
             </div>
             <div className="col-lg-6 col-12 p-0 order-1 order-lg-2">
-              <div className=" d-flex flex-column align-items-center align-items-lg-baseline justify-content-center text-center  text-lg-start mt-3 mt-lg-0">
+              <div className=" d-flex flex-column align-items-center align-items-lg-baseline justify-content-center text-md-center  text-lg-start mt-3 mt-lg-0">
                 <div className="row">
                   <div className="col-11">
                     <div className="font-size-65 font_weight_700 m-0 tight-line-height ps-4">
@@ -259,7 +259,7 @@ export default function AdPage() {
                   </div>
                 </div>
               </div>
-              <p className="mt-5 px-3 text-center text-lg-start">
+              <p className="mt-5 px-3 text-md-center text-lg-start">
                 Experience a seamless blend of functionality and design that
                 empowers you to achieve more. Join a community of users who are
                 transforming their daily routines with our app.
@@ -274,7 +274,7 @@ export default function AdPage() {
                     alt=""
                     className="d-lg-none   arrow_icon"
                   />
-                  <p className="font-size-24 font_weight_700 text-center ps-lg-5 ps-0 ms-0  ms-lg-5 mb-4 pb-5 pb-lg-0">
+                  <p className="font-size-24 font_weight_700 text-md-center ps-lg-5 ps-0 ms-0  ms-lg-5 mb-4 pb-5 pb-lg-0">
                     Join the <span className="blue_color">Innovation</span>
                   </p>
                 </div>
@@ -348,7 +348,7 @@ export default function AdPage() {
         <Container fluid className="bg-grey-color">
           <div className="my_container mx-auto my-5 bg-grey-color">
             <div className="d-flex justify-content-center align-items-center  ps-5">
-              <p className="font-size-35 font_weight_700 text-center ">
+              <p className="font-size-35 font_weight_700 text-md-center ">
                 <span className="blue_color">Our</span> Services
               </p>
               <img
@@ -408,7 +408,7 @@ export default function AdPage() {
                           style={{ transition: "opacity 0.3s ease" }}
                         />
                       </div>
-                      <p className={`text-center pt-3 pt-md-5 m-0`}>
+                      <p className={`text-md-center pt-3 pt-md-5 m-0`}>
                         {item.title}
                       </p>
                     </div>
@@ -435,7 +435,7 @@ export default function AdPage() {
                 </div>
               </div>
             </div>
-            <div className="service-slider-wrapper text-center d-none">
+            <div className="service-slider-wrapper text-md-center d-none">
               <Swiper
                 className="service-slide my-5"
                 spaceBetween={20}
@@ -460,7 +460,7 @@ export default function AdPage() {
                   <SwiperSlide key={index}>
                     <div className="service-slide-content d-flex flex-column align-items-center gap-3 py-3">
                       <img src={item.icon} alt={item.title} className="px-4" />
-                      <p className="text-center m-0">{item.title}</p>
+                      <p className="text-md-center m-0">{item.title}</p>
                     </div>
                   </SwiperSlide>
                 ))}
@@ -476,10 +476,10 @@ export default function AdPage() {
         <div className="row p-0 mx-2     ">
           <div className="col-lg-6 col-12 pe-0  ">
             <div className="tight-line-height pb-5">
-              <p className="font-size-16 font_weight_600 text-center text-lg-start pt-md-5 pt-0">
+              <p className="font-size-16 font_weight_600 text-md-center text-lg-start pt-md-5 pt-0">
                 Empower
               </p>
-              <p className="font-size-62 font_weight_700 text-center text-lg-start">
+              <p className="font-size-62 font_weight_700 text-md-center text-lg-start">
                 Unlock Your Potential with{" "}
               </p>
               <div className="d-flex gap-md-3 justify-content-center justify-content-lg-start ">
@@ -546,7 +546,7 @@ export default function AdPage() {
       </section>
       {/* Our service Digital future */}
       <section className="my_container mx-auto  py-lg-5 ">
-        <p className="text-center blue_color font-size-35 font_weight_600 pt-lg-5 mt-lg-5">
+        <p className="text-md-center blue_color font-size-35 font_weight_600 pt-lg-5 mt-lg-5">
           Our Services
         </p>
         <div className="d-flex justify-content-center ">
@@ -554,7 +554,7 @@ export default function AdPage() {
             <img src={left_sm_splash} alt="" />
           </div>
           <div className="d-flex">
-            <p className="text-black text-center font-size-50 font_weight_700 mt-5">
+            <p className="text-black text-md-center font-size-50 font_weight_700 mt-5">
               We Develop & Create <br />
               <span className="blue_color left_sm_splash">
                 Digital Future{" "}
@@ -579,7 +579,7 @@ export default function AdPage() {
             >
               <div className="d-flex flex-column justify-content-between  align-items-center w-100">
                 <img src={item.img} className="service_icon" alt={item.title} />
-                <div className="card bg-white pt-5 w-100 py-5 rounded-5 banner_form_width d-flex flex-column justify-content-between text-center gap-3">
+                <div className="card bg-white pt-5 w-100 py-5 rounded-5 banner_form_width d-flex flex-column justify-content-between text-md-center gap-3">
                   <p className="font-size-20 font_weight_700 px-3">
                     {item.title}
                   </p>
@@ -623,7 +623,7 @@ export default function AdPage() {
                     className="service_icon"
                     alt={item.title}
                   />
-                  <div className="card bg-white pt-5 w-100 py-5 rounded-5 banner_form_width d-flex flex-column justify-content-between text-center gap-3">
+                  <div className="card bg-white pt-5 w-100 py-5 rounded-5 banner_form_width d-flex flex-column justify-content-between text-md-center gap-3">
                     <p className="font-size-20 font_weight_700 px-3">
                       {item.title}
                     </p>
@@ -658,9 +658,9 @@ export default function AdPage() {
       {/* Our service Digital solution  */}
 
       <section className=" mx-auto my-5 ">
-        <p className="text-center font-size-16 font_weight_600">Services</p>
+        <p className="text-md-center font-size-16 font_weight_600">Services</p>
 
-        <div className="d-flex flex-column flex-md-row justify-content-center  text-center gap-3 font-size-50 font_weight_700 tight-line-height mt-5 pb-3 pb-md-0">
+        <div className="d-flex flex-column flex-md-row justify-content-center  text-md-center gap-3 font-size-50 font_weight_700 tight-line-height mt-5 pb-3 pb-md-0">
           <div className="position-relative d-flex flex-nowrap justify-content-center">
             <p className="m-0 pb-2 text-white px-xl-4  font-size-40  pb-lg-2">
               Transforming
@@ -676,10 +676,10 @@ export default function AdPage() {
             <span className="d-md-none blue_color"> Solutions</span>
           </p>
         </div>
-        <p className="blue_color font-size-50 font_weight_700 m-0 text-center pb-5 d-none d-md-block  ">
+        <p className="blue_color font-size-50 font_weight_700 m-0 text-md-center pb-5 d-none d-md-block  ">
           Solutions
         </p>
-        <p className="text-center font-size-20 bg-white mx-3">
+        <p className="text-md-center font-size-20 bg-white mx-3">
           Our software development services are designed to meet your unique
           business needs. From <br className="d-none d-lg-block" /> concept to
           deployment, we ensure a seamless experience.
@@ -716,7 +716,7 @@ export default function AdPage() {
             >
               {solutionSlidesData.map((slide, index) => (
                 <SwiperSlide key={slide.id}>
-                  <div className="swiper-slide-inner text-center p-lg-4 pt-3 py-lg-5 px-3">
+                  <div className="swiper-slide-inner text-md-center p-lg-4 pt-3 py-lg-5 px-3">
                     <img
                       src={slide.img}
                       alt={slide.title}

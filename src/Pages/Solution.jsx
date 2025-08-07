@@ -169,7 +169,7 @@ function Solution() {
         <div id="smooth-content">
           <section className="d-block d-md-none">
             <Container ref={containerRef} className="my_container mt-5">
-              <p className="text-center font-size-50 font_weight_500  mt-5 pt-md-5">
+              <p className="text-md-center font-size-50 font_weight_500  mt-5 pt-md-5">
                 Smart Solutions For Your Business
                 <br className="d-none d-lg-block" /> By Codeship.
               </p>
@@ -225,8 +225,8 @@ function Solution() {
       {/* Map */}
       <section ref={sectionRef} className="py-lg-5">
         <Container className="my_container py-lg-5 pb-5 pb-md-0">
-          <p className="text-center font-size-18">Global Scale</p>
-          <p className="text-center font-size-46 font_weight_600">
+          <p className="text-md-center font-size-18">Global Scale</p>
+          <p className="text-md-center font-size-46 font_weight_600">
             Trusted by companies around <br className="d-none d-lg-block" />
             the world
           </p>

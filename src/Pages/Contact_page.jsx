@@ -181,7 +181,7 @@ function Contact_page() {
       <Banner text={text} image={image} />
       <Brands />
       <section className="position-relative overflow-hidden" ref={containerRef}>
-        <Container className="my_container pt-5">
+        <Container className="my_container ">
           <p className="font-size-62 m-0 p-0 font_weight_600">
             Have an innovative thought?
           </p>
@@ -205,7 +205,7 @@ function Contact_page() {
                 <div className="row d-flex flex-column-reverse flex-lg-row align-items-end">
                   <div className="col-lg-4">
                     <div className="social-media-links  mt-lg-0">
-                      <p className="font-size-37 font_weight_600">
+                      <p className="font-size-37 font_weight_600 py-4">
                         Follow us on :
                       </p>
                       <div className="d-flex gap-3 w-50">
@@ -263,7 +263,7 @@ function Contact_page() {
                             id="name"
                             type="text"
                             name="name"
-                            className="contact_input border-none mt-4"
+                            className="contact_input border-none mt-2"
                             placeholder="Enter your full name"
                           />
                           <ErrorMessage
@@ -286,7 +286,7 @@ function Contact_page() {
                             type="email"
                             name="email"
                             placeholder="Enter your email address"
-                            className="contact_input mt-4"
+                            className="contact_input mt-2"
                           />
                           <ErrorMessage
                             name="email"
@@ -295,7 +295,7 @@ function Contact_page() {
                           />
                         </div>
                       </div>
-                      <div className="col-md-6 col-12 pe-lg-5 mt-5">
+                      <div className="col-md-6 col-12 pe-lg-5 mt-4">
   <div className="d-flex flex-column px-0 px-sm-4 px-md-0">
     <label className="font-size-20 font_weight_400">Mobile Number</label>
     <div className="mt-4">
@@ -311,7 +311,7 @@ function Contact_page() {
     />
   </div>
 </div>
-                      <div className="col-md-6 col-12 ps-lg-5 mt-5">
+                      <div className="col-md-6 col-12 ps-lg-5 mt-4">
                         <div className="d-flex flex-column px-0 px-sm-4 px-md-0">
                           <label
                             className="font-size-20 font_weight_400"
@@ -322,8 +322,9 @@ function Contact_page() {
                           <Field
                             id="subject"
                             type="text"
+                            placeholder="Enter subject"
                             name="subject"
-                            className="contact_input mt-4"
+                            className="contact_input mt-2"
                           />
                           <ErrorMessage
                             name="subject"
@@ -381,6 +382,7 @@ function Contact_page() {
                         id="about"
                         type="text"
                         name="about"
+                        placeholder="About your project"
                         className="contact_about_more w-100 bg-transparent shadow-none"
                       />
                       <ErrorMessage

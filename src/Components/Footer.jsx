@@ -26,7 +26,7 @@ function Footer() {
               techsupport@codeship.in
             </a>
           </div>
-          <div className='row-6 mt-5 '>
+          <div className='row-6 mt-2'>
             <p className="font-size-28 m-0">No 1, 1st Floor, Narasimhan St, Jothi <br /> Nagar, West Mambalam, Chennai,<br /> Tamil Nadu 600033</p>
           </div>
         </div>
@@ -34,15 +34,15 @@ function Footer() {
         <div className='col-sm-6'>
   <div className='d-flex justify-content-end flex-column flex-sm-col'>
    <div className="row d-flex  flex-flex-md-column">
-     <div className='col-6 col-sm-6 mt-5'>
-      <div className='d-flex flex-column gap-5'>
+     <div className='col-6 col-sm-6 mt-2'>
+      <div className='d-flex flex-column gap-4'>
         <Link to="/" className='footer_links font-size-30 font_color_black font_weight_400' onClick={handleHomeClick}>Home</Link>
         <Link to="/about" className='footer_links font-size-30 font_color_black font_weight_400'>About</Link>
         <Link to="/capable" className='footer_links font-size-30 font_color_black font_weight_400'>Capabilities</Link>
       </div>
     </div>
-    <div className='col-6 col-sm-6 mt-5'>
-      <div className='d-flex flex-column gap-5'>
+    <div className='col-6 col-sm-6 mt-2'>
+      <div className='d-flex flex-column gap-4'>
         <Link to="/solutions" className='footer_links font-size-30 font_color_black font_weight_400'>Solutions</Link>
         <Link to="/ourworks" className='footer_links font-size-30 font_color_black font_weight_400'>Our Works</Link>
         <Link to="/contact" className='footer_links font-size-30 font_color_black font_weight_400'>Contact</Link>
@@ -54,8 +54,8 @@ function Footer() {
 
       </div>
 
-      <div className='row mt-lg-5 mb-4'>
-        <div className='col-md-6   col-12 mt-5'>
+      <div className='row mt-lg-5 mb-md-4'>
+        <div className='col-md-6   col-12 mt-4'>
           
           <div className='d-flex  justify-content-md-start gap-3  gap-lg-5  mt-sm-5 mb-3 '>
             <div className="d-inline"> <Link to="/privacy" className='footer_links font-size-24 font_color_black font_weight_400'>Privacy Policy</Link></div>
@@ -64,7 +64,7 @@ function Footer() {
           </div>
         </div>
         <div className='col-md-6  col-12 d-flex justify-content-start mt-2 mt-md-5'>
-          <p className='font-size-24 font_weight_400 font_color_black mt-5'>© 2025 Codeship pvt Ltd</p>
+          <p className='font-size-24 font_weight_400 font_color_black mt-2'>© 2025 Codeship pvt Ltd</p>
         </div>
       </div>
     </Container>
