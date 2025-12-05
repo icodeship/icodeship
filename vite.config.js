@@ -1,4 +1,3 @@
-// vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
@@ -7,33 +6,43 @@ import path from 'path';
 export default defineConfig(({ command, ssrBuild }) => ({
   base: '/',
   plugins: [
-    react({
-      include: "**/*.{jsx,js}",  // Enable JSX in .js files
-    }), 
+    react(),
     svgr()
   ],
-  optimizeDeps: {
-    include: ['swiper'],
-  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
-  build: {
-    ssr: ssrBuild ? true : false,
-    chunkSizeWarningLimit: 2000,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) return 'vendor';
+
+  // IMPORTANT
+  build: ssrBuild
+    ? {
+        ssr: true,
+        outDir: "dist/server",
+        rollupOptions: {
+          input: "./src/entry-server.jsx",
+           output: {
+          format: "cjs"
+        }
+        },
+      }
+    : {
+        outDir: "dist/client",
+        rollupOptions: {
+          input: "./index.html",
         },
       },
-    },
-  },
+
   ssr: {
-    noExternal: ['swiper', 'gsap', 'react-router-dom', '@remix-run/router', 'react-helmet-async'],
+    noExternal: [
+      'swiper',
+      'gsap',
+      'react-router-dom',
+      '@remix-run/router',
+      'react-helmet-async'
+    ],
     target: 'node',
-    format: 'esm'
-  },
+    format: 'cjs'
+  }
 }));
