@@ -1,3 +1,5 @@
+'use client';
+
 import { Container } from "react-bootstrap";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";

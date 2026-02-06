@@ -1,8 +1,10 @@
+'use client';
+
 // React Core
 import React, { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import ReactDOM from "react-dom";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getImageSrc } from "../utils/imageUtils";

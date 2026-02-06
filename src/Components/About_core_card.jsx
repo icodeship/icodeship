@@ -1,3 +1,5 @@
+'use client';
+
 // About_core_card.jsx
 import React, { useRef, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
@@ -8,7 +10,7 @@ import { gsap } from "gsap";
 import {
   useCoreCardAnimations,
 } from "../Animation/animation";
-import "../Pages/About.css";
+import "../Pages/about.css";
 
 import "swiper/css";
 import "swiper/css/pagination";

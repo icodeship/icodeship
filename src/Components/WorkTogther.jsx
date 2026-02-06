@@ -1,3 +1,5 @@
+'use client';
+
 import Swirl from "../assets/images/About/work_swirl.png";
 import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";

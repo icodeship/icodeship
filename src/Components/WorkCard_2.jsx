@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from "react";
 import { Workdata_2 } from "../Data/WorkData";
 import { animateWorkCard } from "../Animation/animation";

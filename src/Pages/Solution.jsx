@@ -1,7 +1,9 @@
+'use client';
+
 // React and React-related imports
 import { useRef, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 import { getImageSrc } from "../utils/imageUtils";
 
 // React Bootstrap components
@@ -9,7 +11,12 @@ import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
 // GSAP and Animation
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 //  Components
 // import Footer from "../Components/Footer";
@@ -106,14 +113,14 @@ function Solution() {
 
   return (
     <div>
-      <MetaTags {...metaContent} />
-      <Helmet>
+      {/* <MetaTags {...metaContent} /> */}
+      {/* <Helmet>
         <title>Solutions - Codeship</title>
         <meta
           name="description"
           content="Discover Codeship's range of digital solutions designed to solve business challenges and drive growth."
         />
-      </Helmet>
+      </Helmet> */}
       <Banner text={text} image={image} />
       <Brands />
 

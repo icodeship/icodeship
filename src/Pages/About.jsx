@@ -1,8 +1,10 @@
+'use client';
+
 // React and React-related imports
 import React, { useRef, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 
 // FontAwesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -41,7 +43,7 @@ import Why_us from "../assets/images/About/about_why_us.png";
 import { getImageSrc } from "../utils/imageUtils";
 
 // CSS imports
-import "../assets/css/About.css";
+import "../assets/css/about.css";
 
 // Custom Hooks and Animation Utilities
 import useLetsTalk from "../Components/Contact_page_link.jsx";

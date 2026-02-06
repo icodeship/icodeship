@@ -1,3 +1,5 @@
+'use client';
+
 import { Container } from "react-bootstrap";
 import { useState, useRef } from "react";
 import { Button } from "react-bootstrap";

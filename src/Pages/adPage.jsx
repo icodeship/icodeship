@@ -1,3 +1,5 @@
+'use client';
+
 import Banner from "../assets/images/Codeship_Ad/banner.webp";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";

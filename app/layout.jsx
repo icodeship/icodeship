@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/assets/Utility.css';
 import 'swiper/css';
 import '../index.css';
-import { HelmetProvider } from 'react-helmet-async';
+// import { HelmetProvider } from 'react-helmet-async';
 import RootProvider from './providers';
 
 export const metadata = {

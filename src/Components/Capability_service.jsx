@@ -1,3 +1,5 @@
+'use client';
+
 import Testimonial from "../Components/Testimonial";
 import WorkTogther from "./WorkTogther";
 import Brands from "./Brands";
@@ -16,7 +18,7 @@ import {
   useZigzagPathAnimation,
 } from "../Animation/animation";
 import { Pagination } from "swiper/modules";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -54,7 +56,7 @@ const Capable_service = () => {
 
   return (
     <div className="capable_services_container overflow-hidden">
-      <Helmet>
+      {/* <Helmet>
         <title>{serviceName} - Codeship</title>
         <meta
           name="description"
@@ -76,7 +78,7 @@ const Capable_service = () => {
           name="twitter:description"
           content={`Expert ${serviceName} services at Codeship. Professional solutions for your business needs.`}
         />
-      </Helmet>
+      </Helmet> */}
       {/* Banner */}
       <section className=" d-flex justify-content-center mt-5 mb-md-5 overflow-hidden ">
         <Container className="my_container mt-5">

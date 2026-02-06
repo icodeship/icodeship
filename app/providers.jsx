@@ -1,6 +1,6 @@
 'use client';
 
-import { HelmetProvider } from 'react-helmet-async';
+// import { HelmetProvider } from 'react-helmet-async';
 import Header from '@/Components/Header';
 import Footer from '@/Components/Footer';
 import ScrollToTopButton from '@/Components/ScrollToTopButton';
@@ -76,7 +76,8 @@ export default function RootProvider({ children }) {
   }, [mounted]);
 
   return (
-    <HelmetProvider context={helmetContext}>
+    // <HelmetProvider context={helmetContext}>
+    <>
       {!isLanding && <Header />}
       <div>
         {loading && <Loader />}
@@ -84,6 +85,7 @@ export default function RootProvider({ children }) {
         <ScrollToTopButton />
       </div>
       {!isLanding && <Footer />}
-    </HelmetProvider>
+      </>
+    // </HelmetProvider>
   );
 }

@@ -1,5 +1,7 @@
+'use client';
+
 import "./OurWorks.css";
-import "./About.css";
+// import "./About.css";
 import Banner from "../Components/Banner";
 import Banner_Data from "../Data/Banner_Data";
 // import Footer from "../Components/Footer";
@@ -12,7 +14,7 @@ import WorkCard_2 from "../Components/WorkCard_2";
 import "../Pages/Home.css";
 import MetaTags from '../Components/MetaTags';
 import { Workdata_1, Workdata_2 } from "../Data/WorkData";
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 
 function OurWorks() {
   const { text, image } = Banner_Data.works;
@@ -44,10 +46,10 @@ function OurWorks() {
 
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>Our Works - Codeship</title>
         <meta name="description" content="Explore the portfolio of Codeship's successful projects and digital solutions delivered to clients." />
-      </Helmet>
+      </Helmet> */}
       <MetaTags {...metaContent} />
       <Banner text={text} image={image} />
       <Brands />

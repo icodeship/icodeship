@@ -1,8 +1,10 @@
+'use client';
+
 // React and React-related imports
 import React, { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Container } from "react-bootstrap";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 
 // Icons
 import { ChevronRight } from "lucide-react";
@@ -83,7 +85,7 @@ function Capabilities() {
 
   return (
     <div className="capable_services_container">
-      <MetaTags {...metaContent} />
+      {/* <MetaTags {...metaContent} /> */}
       <Banner text={text} image={image} />
       <Brands />
 

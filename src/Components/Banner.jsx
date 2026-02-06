@@ -1,3 +1,5 @@
+'use client';
+
 import { Container } from "react-bootstrap";
 import { getImageSrc } from "../utils/imageUtils";
 import useLetsTalk from "./Contact_page_link";

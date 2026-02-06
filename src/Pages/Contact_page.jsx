@@ -1,7 +1,9 @@
+'use client';
+
 // React and React-related imports
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 
 // React Bootstrap components
 import { Container } from "react-bootstrap";

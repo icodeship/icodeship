@@ -1,3 +1,5 @@
+'use client';
+
 import  { useState } from 'react';
 import { leftAccordionData, rightAccordionData } from "../Data/Contact_Accordion";
 import { Container, Accordion } from "react-bootstrap";
