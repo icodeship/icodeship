@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap";
 import { Accordion } from "react-bootstrap";
 import { getImageSrc } from "../utils/imageUtils";
 import Service_with_us from "../assets/images/Capable_service/capable_service_with_us.png";
-import "../assets/css/Capabilities.css";
+import "../assets/css/capabilitie_service.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import serviceData from "../Service_Data/Service_Page_Data";
 import { useParams } from "next/navigation";
@@ -114,7 +114,7 @@ const Capable_service = () => {
           <div className="row justify-content-between">
             <div className="col-lg-5 col-md-12 col-12">
               <p className="font-size-25  font_weight_300 mt-lg-5">
-                Who Choose Us ?
+                Why Choose Us ?
               </p>
               <p className="font-size-58 font_weight_600">
                 {service.sub_banner.title}

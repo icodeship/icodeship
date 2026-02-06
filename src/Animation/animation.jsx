@@ -419,6 +419,11 @@ export const useScrollPopup = () => {
 export const useImageSlideInAnimation = (containerRef) => {
   useEffect(() => {
     if (typeof window !== "undefined" && containerRef.current) {
+      // Disable animation on mobile devices
+      if (window.innerWidth < 768) {
+        return;
+      }
+
       const rows = containerRef.current.querySelectorAll(".capable_service_data");
 
       rows.forEach((row) => {

@@ -144,7 +144,7 @@ function About() {
                 {cardData.map((item, index) => (
                   <SwiperSlide key={index}>
                     <div
-                      className="card core_card pb-2 rounded-4 border_shadow mx-3 animate-from-bottom"
+                      className="card core_card pb-2 rounded-4 border_shadow mx-3 "
                       ref={(el) => setCardRef(el, index + 4)}
                     >
                       <div className="d-flex justify-content-center pt-3">
@@ -381,7 +381,7 @@ function About() {
               >
                 {Office_Data.map((item, index) => (
                   <SwiperSlide key={index}>
-                    <div className="office-card animate-from-bottom">
+                    <div className="office-card annimate-from-bottom">
                       <div className="rounded-4">
                         <div className="d-flex justify-content-center mt-3 pt-3">
                           <img
