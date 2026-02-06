@@ -20,6 +20,9 @@ import MetaTags from "../Components/MetaTags";
 import Banner_Data from "../Data/Banner_Data";
 import { Services_Data } from "../Data/Capable_Data";
 
+// Utils
+import { getImageSrc } from "../utils/imageUtils";
+
 // CSS
 import "../Pages/Capabilities.css";
 
@@ -109,9 +112,7 @@ function Capabilities() {
                         href={`/capable-service/${point.href}`}
                         onClick={(e) => {
                           e.preventDefault();
-                          navigate(`/capable-service/${point.href}`, {
-                            state: { name: point.text },
-                          });
+                          router.push(`/capable-service/${point.href}`);
                         }}
                         className="text-black d-flex align-items-center gap-2 text-decoration-none"
                       >
@@ -125,7 +126,7 @@ function Capabilities() {
 
                   {idx % 2 !== 1 && (
                     <img
-                      src={service.imageOdd}
+                      src={getImageSrc(service.imageOdd)}
                       alt=""
                       className="d-none d-xl-block img-fluid position-absolute top-25 start-50 capable_shape1"
                     />
@@ -134,7 +135,7 @@ function Capabilities() {
               </div>
               <div className="col-12 col-lg-6 col-md-6">
                 <img
-                  src={service.image}
+                  src={getImageSrc(service.image)}
                   alt={service.title}
                   className="img-fluid mt-5 mt-lg-0 slide-img"
                 />

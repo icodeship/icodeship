@@ -5,7 +5,6 @@ import cardData from "../Data/About_Core_Data";
 import { getImageSrc } from "../utils/imageUtils";
 import useLetsTalk from "../Components/Contact_page_link.jsx";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   useCoreCardAnimations,
 } from "../Animation/animation";
@@ -14,62 +13,16 @@ import "../Pages/About.css";
 import "swiper/css";
 import "swiper/css/pagination";
 
-gsap.registerPlugin(ScrollTrigger);
-
 function About_core_card() {
-  const sectionRef = useRef(null);
-  const leftColRef = useRef(null);
-  const rightColRef = useRef(null);
   const cardRefs = useRef([]);
  const letsTalk = useLetsTalk();
-  useEffect(() => {
-    const section = sectionRef.current;
-    const leftCol = leftColRef.current;
-    const rightCol = rightColRef.current;
-
-    if (!section || !leftCol || !rightCol) return;
-
-    ScrollTrigger.getAll().forEach((st) => st.kill());
-
-    const updateLayout = () => {
-      const height = rightCol.offsetHeight;
-      section.style.height = `${height}px`;
-
-      const pinSpacer = leftCol.parentNode.querySelector(".pin-spacer");
-      if (pinSpacer) {
-        pinSpacer.style.width = `${leftCol.offsetWidth}px`;
-        pinSpacer.style.maxWidth = "100%";
-      }
-    };
-
-    const pinTrigger = ScrollTrigger.create({
-      trigger: section,
-      start: "top top",
-      end: () => `+=${rightCol.offsetHeight}`,
-      pin: leftCol,
-      pinSpacing: false,
-      invalidateOnRefresh: true,
-      onRefresh: updateLayout,
-    });
-
-    updateLayout();
-
-    window.addEventListener("resize", updateLayout);
-
-    return () => {
-      pinTrigger.kill();
-      window.removeEventListener("resize", updateLayout);
-    };
-  }, []);
-
   useCoreCardAnimations(cardRefs);
 
   return (
-    <section className="core-values-section px-0 pt-0 pb-md-5" ref={sectionRef}>
+    <section className="core-values-section px-0 pt-0 pb-md-5">
       <Container className="my_container px-0 mt-lg-5 mb-5">
         <div className="row services_row">
           <div
-            ref={leftColRef}
             className="col-12 col-md-6 col-sm-12 col-lg-4 "
           >
             <p className="font-size-54 font_weight_600 mx-3 mx-lg-0 mx-xl-0 mt-5">
@@ -91,7 +44,6 @@ function About_core_card() {
           </div>
 
           <div
-            ref={rightColRef}
             className="col-12 col-lg-8  col-md-6 col-sm-6 mt-md-5 mt-lg-5 d-none d-lg-flex flex-column "
           >
             <div className="row d-flex justify-content-end">
@@ -157,12 +109,6 @@ function About_core_card() {
           </div>
         </div>
       </Container>
-      <style>{`
-        .core-values-section .pin-spacer {
-          width: auto !important;
-          max-width: 100%;
-        }
-      `}</style>
     </section>
   );
 }

@@ -41,6 +41,9 @@ import Contact_icon2 from "../assets/images/Home/insta_icon.png";
 import Contact_icon3 from "../assets/images/Home/linkdin_icon.png";
 import Contact_icon4 from "../assets/images/Home/twitter_icon.png";
 
+// Utils
+import { getImageSrc } from "../utils/imageUtils";
+
 // CSS
 import "../Pages/Contact_page.css";
 import AsyncPhoneInput from'../Components/phoneInput.jsx'
@@ -192,7 +195,7 @@ function Contact_page() {
                           aria-label="Facebook"
                         >
                           <img
-                            src={Contact_icon1}
+                            src={getImageSrc(Contact_icon1)}
                             alt="Facebook"
                             className="img-fluid"
                           />
@@ -202,7 +205,7 @@ function Contact_page() {
                           aria-label="Instagram"
                         >
                           <img
-                            src={Contact_icon2}
+                            src={getImageSrc(Contact_icon2)}
                             alt="Instagram"
                             className="img-fluid"
                           />
@@ -212,14 +215,14 @@ function Contact_page() {
                           aria-label="LinkedIn"
                         >
                           <img
-                            src={Contact_icon3}
+                            src={getImageSrc(Contact_icon3)}
                             alt="LinkedIn"
                             className="img-fluid"
                           />
                         </a>
                         <a href="https://x.com/ship_code20427?t=eCBOb7HeomgEwx2GqcJBoQ&s=09" aria-label="Other social link">
                           <img
-                            src={Contact_icon4}
+                            src={getImageSrc(Contact_icon4)}
                             alt="Other social link"
                             className="img-fluid"
                           />
@@ -400,7 +403,7 @@ function Contact_page() {
             <div className="card border_shadow p-3 Contact_card rounded-5">
               <div className="ms-2 mt-2">
                 <div className="mb-5">
-                  <img src={Location_icon} alt="" className="about_core_icon" />
+                  <img src={getImageSrc(Location_icon)} alt="" className="about_core_icon" />
                 </div>
                 <p className="font-size-24 font_weight_700 font_color_light_blue">
                   Visit Us
@@ -420,7 +423,7 @@ function Contact_page() {
             <div className="card border_shadow p-3 Contact_card rounded-5">
               <div className="ms-2 mt-2">
                 <div className="mb-5">
-                  <img src={Msg_icon} alt="" className="about_core_icon" />
+                  <img src={getImageSrc(Msg_icon)} alt="" className="about_core_icon" />
                 </div>
                 <p className="font-size-24 font_weight_700 font_color_light_blue">
                   Chat Support
@@ -440,7 +443,7 @@ function Contact_page() {
             <div className="card border_shadow p-3 Contact_card rounded-5">
               <div className="ms-2 mt-2">
                 <div className="mb-5">
-                  <img src={Call_icon} alt="" className="about_core_icon" />
+                  <img src={getImageSrc(Call_icon)} alt="" className="about_core_icon" />
                 </div>
                 <p className="font-size-24 font_weight_700 font_color_light_blue">
                   Speak with our friendly team
