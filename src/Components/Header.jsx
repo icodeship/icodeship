@@ -4,6 +4,7 @@ import { Navbar } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Offcanvas } from "react-bootstrap";
 import logo from "../assets/images/Home/logo.png";
+import { getImageSrc } from "../utils/imageUtils";
 import { HiMenu } from "react-icons/hi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,7 +13,8 @@ import {
   faChevronDown,
   faChevronUp,
 } from "@fortawesome/free-solid-svg-icons";
-import { useLocation, Link, useParams } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import useLetsTalk from "../Components/Contact_page_link";
 import { Services_Data } from "../Data/Capable_Data";
 import { useState, useRef } from "react";
@@ -22,8 +24,7 @@ export default function Header({}) {
   const [showCapabilities, setShowCapabilities] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const timeoutRef = useRef(null);
-  const location = useLocation();
-  const currentPath = location.pathname;
+  const currentPath = usePathname();
   const letsTalk = useLetsTalk();
 
   // State for capabilities dropdown in the new offcanvas
@@ -93,14 +94,14 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
             <div className="d-flex justify-content-center">
               <Nav.Link
                 as={Link}
-                to="/"
+                href="/"
                 onClick={() => {
                   if (window.location.pathname === "/") {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 }}
               >
-                <img src={logo} alt="Codeship Home" className="logo_img img-fluid" style={{maxWidth:"200px",width:"100%"}}/>
+                <img src={getImageSrc(logo)} alt="Codeship Home" className="logo_img img-fluid" style={{maxWidth:"200px",width:"100%"}}/>
               </Nav.Link>
             </div>
             <Button
@@ -118,7 +119,7 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
           {/* Desktop Nav */}
           <Nav.Link
             as={Link}
-            to="/"
+            href="/"
             onClick={() => {
               if (window.location.pathname === "/") {
                 window.scrollTo({ top: 0, behavior: "smooth" });
@@ -126,7 +127,7 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
             }}
             className="d-none d-xxl-flex ms-xl-5 ms-lg-3"
           >
-            <img src={logo} alt="Codeship Home" className="logo_img" />
+            <img src={getImageSrc(logo)} alt="Codeship Home" className="logo_img" />
           </Nav.Link>
 
           <Navbar.Collapse id="navbarScroll" className="d-none d-xxl-flex">
@@ -134,14 +135,14 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
             <Nav className="font-size-24 font_weight_300 gap-xl-4 gap-lg-0 flex-nowrap">
               <Nav.Link
                 as={Link}
-                to="/"
+                href="/"
                 className={`${currentPath === "/" ? "active" : ""}`}
               >
                 Home
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                to="/about"
+                href="/about"
                 className={`px-xl-3 px-lg-3 ${
                   currentPath === "/about" ? "active" : ""
                 }`}
@@ -157,7 +158,7 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
               >
                 <Nav.Link
                   as={Link}
-                  to="/capable"
+                  href="/capable"
                   className={currentPath.startsWith("/capable") ? "active" : ""}
                 >
                   Capabilities
@@ -180,7 +181,7 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
                           {service.points.map((point, i) => (
                             <Nav.Link
                             as={Link}
-                            to={`/capable-service/${point.href}`}
+                            href={`/capable-service/${point.href}`}
                             className={`${currentsubpath === `${point.href}` ? "font_color_light_blue font_weight_600 " : ""}font-size-18 font_weight_400 text-dark pb-3 pt-2 px-0`}
                             key={i}
                             onClick={hideDropdownWithDelay}
@@ -198,21 +199,21 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
 
               <Nav.Link
                 as={Link}
-                to="/solutions"
+                href="/solutions"
                 className={`${currentPath === "/solutions" ? "active" : ""}`}
               >
                 Solutions
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                to="/ourworks"
+                href="/ourworks"
                 className={`${currentPath === "/ourworks" ? "active" : ""}`}
               >
                 Our Works
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                to="/contact"
+                href="/contact"
                 className={`${currentPath === "/contact" ? "active" : ""}`}
               >
                 Contact
@@ -244,7 +245,7 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
 
                   <div className="d-flex flex-column align-items-center justify-content-center  mt-2">
                    
-                      <img src={logo} alt="Codeship Home" className="" style={{maxWidth: "200px"}} />
+                      <img src={getImageSrc(logo)} alt="Codeship Home" className="" style={{maxWidth: "200px"}} />
 
                   </div>
                   <div className="mt-2 pt-3 ms-3">
@@ -267,14 +268,14 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
             {!showCapabilities&&(
 
               <Nav className="flex-column gap-4 ms-4 font-size-25">
-                <Nav.Link as={Link} to="/" onClick={handleClose}>
+                <Nav.Link as={Link} href="/" onClick={handleClose}>
                   Home
                 </Nav.Link>
 
-                <Nav.Link as={Link} to="/about" onClick={handleClose}>
+                <Nav.Link as={Link} href="/about" onClick={handleClose}>
                   About
                 </Nav.Link>
-                <Nav.Link as={Link} to="/capable" onClick={handleClose}>
+                <Nav.Link as={Link} href="/capable" onClick={handleClose}>
                   Capabilities
                 </Nav.Link>
                 {/* Capabilities - opens new offcanvas */}
@@ -285,15 +286,15 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
                   Capabilities Service
                 </button>
 
-                <Nav.Link as={Link} to="/solutions" onClick={handleClose}>
+                <Nav.Link as={Link} href="/solutions" onClick={handleClose}>
                   Solutions
                 </Nav.Link>
 
-                <Nav.Link as={Link} to="/ourworks" onClick={handleClose}>
+                <Nav.Link as={Link} href="/ourworks" onClick={handleClose}>
                   Our Works
                 </Nav.Link>
 
-                <Nav.Link as={Link} to="/contact" onClick={handleClose}>
+                <Nav.Link as={Link} href="/contact" onClick={handleClose}>
                   Contact
                 </Nav.Link>
               </Nav>)}
@@ -336,7 +337,7 @@ const currentsubpath=currentPath.replace("/capable-service/", "")
                            <Nav.Link
                              key={i}
                              as={Link}
-                             to={`/capable-service/${point.href}`}
+                             href={`/capable-service/${point.href}`}
                              onClick={handleCloseCapabilities}
                              className="d-block py-2 px-3 mb-2 font-size-24 text-dark bg-light rounded-3 text-decoration-none "
                              onMouseEnter={(e) => {

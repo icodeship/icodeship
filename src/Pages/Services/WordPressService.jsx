@@ -5,7 +5,7 @@ import Banner from "../../Components/Banner";
 import Brands from "../../Components/Brands";
 import WorkTogther from "../../Components/WorkTogther";
 // import Footer from "../../Components/Footer";
-import { Service_Page_Data } from "../../Service_Data/Service_Page_Data";
+import Service_Page_Data from "../../Service_Data/Service_Page_Data";
 
 function WordPressService() {
   const serviceData = Service_Page_Data["wordpress-dev"];

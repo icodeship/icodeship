@@ -1,4 +1,5 @@
 import pagenotfound from "../assets/images/pageNotFound.jpg";
+import { getImageSrc } from "../utils/imageUtils";
 
 export default function PageNotFound () {
   return (
@@ -6,7 +7,7 @@ export default function PageNotFound () {
       className="d-flex justify-content-center align-items-center v    bg-white mt-5"
     >
       <img
-        src={pagenotfound}
+        src={getImageSrc(pagenotfound)}
         alt="Page Not Found"
         className="img-fluid w-50 mt-5 "
        

@@ -1,10 +1,11 @@
 // React Core
 import React, { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import ReactDOM from "react-dom";
 import { Helmet } from "react-helmet-async";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getImageSrc } from "../utils/imageUtils";
 gsap.registerPlugin(ScrollTrigger);
 
 // Data
@@ -93,7 +94,7 @@ function ProjectSwiperSlide({
         ref={cardRef}
       >
         <img
-          src={project.image}
+          src={getImageSrc(project.image)}
           alt={project.title}
           className="project_image w-100 h-auto object-fit-cover"
         />
@@ -173,7 +174,7 @@ const ThingsCard = ({ item, index, className = "" }) => {
             <div className="d-flex">
               <div className="position-relative pe-5 things_icon_container">
                 <img
-                  src={item.hoverIcon}
+                  src={getImageSrc(item.hoverIcon)}
                   alt="hover icon"
                   className="things_head things_hover_icon position-absolute pt-2 "
                   style={{
@@ -183,7 +184,7 @@ const ThingsCard = ({ item, index, className = "" }) => {
                   }}
                 />
                 <img
-                  src={item.icon}
+                  src={getImageSrc(item.icon)}
                   alt="icon"
                   className="things_head things_icon position-absolute pt-2 "
                   style={{
@@ -211,7 +212,7 @@ const ThingsCard = ({ item, index, className = "" }) => {
 };
 
 function Home() {
-  const navigate = useNavigate();
+  const router = useRouter();
   // Data slices for cards
   const topCards = Things_Data.slice(0, 2);
   const bottomCards = Things_Data.slice(2, 4);
@@ -284,7 +285,7 @@ function Home() {
   };
 
   const handlePurchaseClick = () => {
-    navigate("/purchase-contact");
+    router.push("/purchase-contact");
   };
 
   // Handle opening purchase form modal
@@ -292,11 +293,13 @@ function Home() {
     // --- ScrollTrigger setup for software section ---
     const section = sectionRef.current;
     const totalItems = softwareData.length;
+    // Use shorter scroll distance to minimize pin duration
+    const scrollDistance = window.innerHeight * (totalItems * 0.9);
 
     const trigger = ScrollTrigger.create({
       trigger: section,
       start: "top top",
-      end: `+=${window.innerHeight * totalItems}`,
+      end: `+=${scrollDistance}`,
       pin: true,
       scrub: 1,
       onUpdate: (self) => {
@@ -357,7 +360,7 @@ function Home() {
         {/* Map section */}
         <section className="d-flex justify-content-center align-items-center  my-4 pt-xl-5">
           <img
-            src={map}
+            src={getImageSrc(map)}
             alt=""
             className="img-fluid position-relative pt-0 pt-lg-5"
           />
@@ -422,12 +425,12 @@ function Home() {
                                 <div className="d-flex gap-5 ">
                                   <div className="position-relative  things_icon_container">
                                     <img
-                                      src={item.hoverIcon}
+                                      src={getImageSrc(item.hoverIcon)}
                                       alt=""
                                       className="things_head things_hover_icon position-absolute"
                                     />
                                     <img
-                                      src={item.icon}
+                                      src={getImageSrc(item.icon)}
                                       alt=""
                                       className="things_head things_icon position-absolute "
                                     />
@@ -491,7 +494,7 @@ function Home() {
                                     className={`icon icon_background background_color_light_blue p-2 p-sm-2 p-md-3 rounded-circle ${
                                       isActive ? "focus-ring" : ""
                                     }`}
-                                    src={item.icon}
+                                    src={getImageSrc(item.icon)}
                                     alt={item.name}
                                   />
                                   <span className="icon_background_line d-none d-md-block background_color_light_blue p-1 m-0 text-nowrap"></span>
@@ -529,7 +532,7 @@ function Home() {
                             ref={imageRef}
                             rel="preload"
                             as="image"
-                            src={softwareData[currentIndex].center_image}
+                            src={getImageSrc(softwareData[currentIndex].center_image)}
                             className="img-fluid software_img mb-3 mt-md-3 px-md-3 pb-3"
                             alt={softwareData[currentIndex].name}
                           />
@@ -745,7 +748,7 @@ function Home() {
                         ref={cardRef}
                       >
                         <img
-                          src={project.image}
+                          src={getImageSrc(project.image)}
                           alt={project.title}
                           className="project_image w-100 h-auto object-fit-cover"
                         />

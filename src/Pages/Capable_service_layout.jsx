@@ -1,12 +1,11 @@
 import Header from '../Components/Header';
 // import Footer from '../Components/Footer';
-import { Outlet } from 'react-router-dom';
 
-const Capable_service_layout = () => {
+const Capable_service_layout = ({ children }) => {
     
   return (
     <>
-    <Outlet />
+    {children}
     {/* <Footer/> */}
   </>
   );

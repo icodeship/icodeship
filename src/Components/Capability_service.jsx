@@ -4,11 +4,12 @@ import Brands from "./Brands";
 import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Accordion } from "react-bootstrap";
+import { getImageSrc } from "../utils/imageUtils";
 import Service_with_us from "../assets/images/Capable_service/capable_service_with_us.png";
 import "../assets/css/Capabilities.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import serviceData from "../Service_Data/Service_Page_Data";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import {
   useVerticalToHorizontalScroll,
@@ -27,8 +28,7 @@ import "swiper/css/pagination";
 const Capable_service = () => {
   const { href } = useParams();
   const service = serviceData[href];
-  const location = useLocation();
-  const serviceName = location.state?.name || "Our Services";
+  const serviceName = "Our Services";
   const serviceDescription =
     service?.description ||
     "Professional digital services tailored to your business needs";
@@ -98,7 +98,7 @@ const Capable_service = () => {
               <div className="d-flex justify-content-center">
                 {" "}
                 <img
-                  src={service.banner.icon}
+                  src={getImageSrc(service.banner.icon)}
                   alt="Banner Visual "
                   className="img-fluid banner_height Banner_img w-100 h-100"
                 />
@@ -127,7 +127,7 @@ const Capable_service = () => {
               <div className="">
                 {" "}
                 <img
-                  src={service.sub_banner.icon}
+                  src={getImageSrc(service.sub_banner.icon)}
                   alt=""
                   className="img-fluid Banner_img w-100 h-100"
                 />
@@ -164,7 +164,7 @@ const Capable_service = () => {
               >
                 <div className="card d-flex flex-column  rounded-4">
                   <div className="ms-4 pt-4 pb-4 pe-2">
-                    <img src={item.icon} alt="" className="img-fluid" />
+                    <img src={getImageSrc(item.icon)} alt="" className="img-fluid" />
                     <p className="font-size-30 font_weight_700 font_color_light_blue pt-3">
                       {item.title}
                     </p>
@@ -212,7 +212,7 @@ const Capable_service = () => {
                     <div className="">
                       <div className="mobile_icon_container">
                         <img
-                          src={item.icon}
+                          src={getImageSrc(item.icon)}
                           alt=""
                           className="m-0 p-0 img-fluid Capable_service_icon1"
                         />
@@ -250,7 +250,7 @@ const Capable_service = () => {
             <div className="col-lg-6 d-flex justify-content-center align-items-center col-12">
               <div className="d-flex justify-content-center ">
                 <img
-                  src={service.Img}
+                  src={getImageSrc(service.Img)}
                   alt=""
                   className=" img-fluid"
                 />

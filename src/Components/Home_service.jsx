@@ -1,7 +1,8 @@
 import React from "react";
 import Services from "../Data/Service_Data";
+import { getImageSrc } from "../utils/imageUtils";
 import { Container, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 // FontAwesome & Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -26,7 +27,7 @@ function Home_service() {
                 <br className="d-none d-lg-block" /> touchpoints
               </p>
               <div className="d-flex justify-content-start">
-                <Link to="/capable" className="text-decoration-none">
+                <Link href="/capable" className="text-decoration-none">
                   <Button className="blue_gradient rounded-5 font-size-22 font_weight_500 px-4 py-2">
                     All Services{" "}
                     <FontAwesomeIcon icon={faArrowRight} className="ps-3" />
@@ -46,7 +47,7 @@ function Home_service() {
                     <div className="d-flex flex-column">
                       <div className="icon-container pe-5">
                         <img
-                          src={service.icon}
+                          src={getImageSrc(service.icon)}
                           alt={`${service.title} Icon`}
                           className="pt-2 pb-3 service-icon"
                         />

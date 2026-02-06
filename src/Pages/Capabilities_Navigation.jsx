@@ -1,6 +1,6 @@
 // React and React-related imports
 import React, { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { Container } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 
@@ -25,7 +25,7 @@ import "../Pages/Capabilities.css";
 
 function Capabilities() {
   const { text, image } = Banner_Data.capable;
-  const navigate = useNavigate();
+  const router = useRouter();
   const containerRef = useRef(null);
 
   // Prepare meta content with null checks

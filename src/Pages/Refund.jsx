@@ -1,7 +1,7 @@
 import React from 'react';
 // import Footer from "../Components/Footer"
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom"
+import Link from "next/link"
 import { Helmet } from 'react-helmet-async';
 
 function Refund() {
@@ -139,7 +139,7 @@ function Refund() {
               </div>
             </a>
 
-            <Link to="/contact" className="text-decoration-none">
+            <Link href="/contact" className="text-decoration-none">
               <div className="bg-white p-4 rounded shadow-sm">
                 <span className="fs-5 fw-bold text-black">Website:</span>
                 <br />

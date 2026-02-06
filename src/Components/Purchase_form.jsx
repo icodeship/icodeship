@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 // import Footer from "./Footer";
 import Purchase_button from "../assets/images/purchase_arrow.png";
+import { getImageSrc } from "../utils/imageUtils";
 import { BallSplash } from "../Animation/animation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -218,7 +219,7 @@ const PurchaseContactForm = () => {
                         disabled={isSubmitted}
                       >
                         <img
-                          src={Purchase_button}
+                          src={getImageSrc(Purchase_button)}
                           alt="Submit"
                           className={`p-2 rounded-circle bg-white arrow-img ${
                             isSubmitted ? "move-right" : ""

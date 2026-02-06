@@ -1,5 +1,6 @@
 import { Container, Navbar } from "react-bootstrap";
 import Logo from "../assets/images/Codeship_Ad/logo.png";
+import { getImageSrc } from "../utils/imageUtils";
 import { Phone } from 'lucide-react';
 
 const  Header = () => {
@@ -12,7 +13,7 @@ const  Header = () => {
 
           <div className="text-md-center">
             <Navbar.Brand href="/">
-              <img src={Logo} alt="Logo" className="img-fluid"  />
+              <img src={getImageSrc(Logo)} alt="Logo" className="img-fluid"  />
             </Navbar.Brand>
           </div>
 
@@ -24,7 +25,7 @@ const  Header = () => {
         <div className="d-none d-md-flex w-100 justify-content-between align-items-center px-5">
           {/* Desktop layout */}
           <Navbar.Brand href="/">
-            <img src={Logo} alt="Logo" className="img-fluid" />
+            <img src={getImageSrc(Logo)} alt="Logo" className="img-fluid" />
           </Navbar.Brand>
 
           <div className="d-flex gap-4 gap-lg-2">
