@@ -1,6 +1,7 @@
 import { Container } from "react-bootstrap";
 import { useState, useRef } from "react";
 import { Button } from "react-bootstrap";
+import { getImageSrc } from "../utils/imageUtils";
 import Contact_icon1 from "../assets/images/Home/facebook.png";
 import Contact_icon2 from "../assets/images/Home/insta_icon.png";
 import Contact_icon3 from "../assets/images/Home/linkdin_icon.png";
@@ -108,28 +109,28 @@ function Contact() {
                       <div className="d-flex gap-3 w-50">
                         <a href="https://www.facebook.com/icodeship">
                           <img
-                            src={Contact_icon1}
+                            src={getImageSrc(Contact_icon1)}
                             alt=""
                             className="img-fluid "
                           />
                         </a>
                         <a href="https://www.instagram.com/icodeship?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                           <img
-                            src={Contact_icon2}
+                            src={getImageSrc(Contact_icon2)}
                             alt=""
                             className="img-fluid"
                           />
                         </a>
                         <a href="https://www.linkedin.com/company/icodeship/posts/?feedView=all">
                           <img
-                            src={Contact_icon3}
+                            src={getImageSrc(Contact_icon3)}
                             alt=""
                             className="img-fluid"
                           />
                         </a>
                         <a href="https://x.com/ship_code20427?t=eCBOb7HeomgEwx2GqcJBoQ&s=09">
                           <img
-                            src={Contact_icon4}
+                            src={getImageSrc(Contact_icon4)}
                             alt=""
                             className="img-fluid"
                           />

@@ -38,6 +38,7 @@ import Office_Data from "../Data/Office_data.jsx";
 
 // Image imports
 import Why_us from "../assets/images/About/about_why_us.png";
+import { getImageSrc } from "../utils/imageUtils";
 
 // CSS imports
 import "../assets/css/About.css";
@@ -106,7 +107,7 @@ function About() {
       <Brands />
       {/* Core value section */}
       <section className="my_container d-lg-none d-block pb-5">
-        <div className="row">
+        <div className="row align-items-start">
           <div className="col-12 col-md-6 col-sm-12 col-lg-4 col-xl-6">
             <p className="font-size-54 font_weight_600 mx-3 mx-lg-0 mx-xl-0 mt-5">
               Codeship core values that keep us so well together.
@@ -143,12 +144,12 @@ function About() {
                 {cardData.map((item, index) => (
                   <SwiperSlide key={index}>
                     <div
-                      className="card core_card pb-2 rounded-4 border_shadow mx-3"
+                      className="card core_card pb-2 rounded-4 border_shadow mx-3 animate-from-bottom"
                       ref={(el) => setCardRef(el, index + 4)}
                     >
                       <div className="d-flex justify-content-center pt-3">
                         <img
-                          src={item.icon}
+                          src={getImageSrc(item.icon)}
                           alt={item.title}
                           className="img-fluid"
                         />
@@ -177,7 +178,7 @@ function About() {
         <Container className="my_container">
           <div className="row">
             <div className="col-lg-5 col-sm-12 col-12">
-              <img src={Why_us} alt="" className="img-fluid" />
+              <img src={getImageSrc(Why_us)} alt="" className="img-fluid" />
             </div>
             <div className="col-lg-7 col-sm-12 col-12">
               <p className="font-size-18 font_weight_500">Why Choose Us?</p>
@@ -197,7 +198,7 @@ function About() {
                     <div className="card border_shadow rounded-4 ">
                       <div className="d-flex gap-3 align-items-center">
                         <img
-                          src={item.img}
+                          src={getImageSrc(item.img)}
                           alt=""
                           className="img-fluid"
                           style={{ maxWidth: 128, height: "auto" }}
@@ -281,7 +282,7 @@ function About() {
               <SwiperSlide key={index}>
                 <div className=" d-flex justify-content-center align-items-center rounded-4 member-card overflow-hidden position-relative">
                   <img
-                    src={member.img}
+                    src={getImageSrc(member.img)}
                     alt={member.name}
                     className="position-relative img-fluid "
                   />
@@ -357,7 +358,7 @@ function About() {
                 <div className="rounded-4 animate-from-bottom">
                   <div className="d-flex justify-content-center mt-lg-2 pt-lg-3">
                     <img
-                      src={item.img}
+                      src={getImageSrc(item.img)}
                       alt={`img ${index + 1}`}
                       className="img-fluid rounded-5"
                     />
@@ -384,7 +385,7 @@ function About() {
                       <div className="rounded-4">
                         <div className="d-flex justify-content-center mt-3 pt-3">
                           <img
-                            src={item.img}
+                            src={getImageSrc(item.img)}
                             alt={`img ${index + 1}`}
                             className="img-fluid pt-lg-5 rounded-5"
                           />

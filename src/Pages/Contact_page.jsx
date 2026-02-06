@@ -1,6 +1,6 @@
 // React and React-related imports
 import { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useSearchParams } from "next/navigation";
 import { Helmet } from "react-helmet-async";
 
 // React Bootstrap components
@@ -66,7 +66,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function Contact_page() {
-  const location = useLocation();
+  const searchParams = useSearchParams();
 
   const services = [
     "Web Development",
@@ -97,43 +97,25 @@ function Contact_page() {
   };
 
   useEffect(() => {
-    if (location.hash) {
-      const scrollToElement = () => {
-        const element = document.querySelector(location.hash);
-        if (element) {
-          element.scrollIntoView({ behavior: "auto" });
-        }
-      };
-
-      // If page fully loaded, scroll immediately
-      if (document.readyState === "complete") {
-        scrollToElement();
-      } else {
-        // Wait for full load (images/fonts)
-        window.addEventListener("load", scrollToElement);
-        // Cleanup listener
-        return () => window.removeEventListener("load", scrollToElement);
-      }
-    }
-
     const scrollToTarget = (selector) => {
       const target = document.querySelector(selector);
-
       if (target) {
         target.scrollIntoView({ behavior: "smooth" });
       }
     };
 
     const timeout = setTimeout(() => {
-      if (location.hash) {
-        scrollToTarget(location.hash); // handles #contactForm
-      } else if (location.state?.scrollToForm) {
-        scrollToTarget("#contactForm"); // handles state-based scroll
+      if (typeof window !== "undefined") {
+        if (window.location.hash) {
+          scrollToTarget(window.location.hash);
+        } else if (searchParams.get("scrollToForm")) {
+          scrollToTarget("#contactForm");
+        }
       }
-    }, 100); // slight delay to ensure content is ready
+    }, 100);
 
     return () => clearTimeout(timeout);
-  }, [location]);
+  }, [searchParams]);
 
   const containerRef = useRef(null);
   const [showSplash, setShowSplash] = useState(false);

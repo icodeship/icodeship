@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import Footer from "../Components/Footer";
 import "../Pages/Capabilities.css";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Helmet } from 'react-helmet-async';
 
 const Privacy = () => {
@@ -504,7 +504,7 @@ const Privacy = () => {
               </div>
             </a>
 
-            <Link to="/contact" className="text-decoration-none">
+            <Link href="/contact" className="text-decoration-none">
               <div className="bg-white p-4 rounded shadow-sm">
                 <span className="fs-5 fw-bold text-black">Website:</span>
                 <br />

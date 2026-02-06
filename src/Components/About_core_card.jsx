@@ -2,6 +2,7 @@
 import React, { useRef, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
 import cardData from "../Data/About_Core_Data";
+import { getImageSrc } from "../utils/imageUtils";
 import useLetsTalk from "../Components/Contact_page_link.jsx";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -106,7 +107,7 @@ function About_core_card() {
                   <div className="card pb-5 pb-lg-3 rounded-4 border_shadow">
                     <div className="d-flex justify-content-center pt-3 ">
                       <img
-                        src={item.icon}
+                        src={getImageSrc(item.icon)}
                         alt={item.title}
                         className="img-fluid about_core_icon"
                       />
@@ -136,7 +137,7 @@ function About_core_card() {
                   <div className="card pb-5 pb-lg-3 rounded-4 border_shadow">
                     <div className="d-flex justify-content-center mt-2 pt-3">
                       <img
-                        src={item.icon}
+                        src={getImageSrc(item.icon)}
                         alt={item.title}
                         className="img-fluid about_core_icon"
                       />
