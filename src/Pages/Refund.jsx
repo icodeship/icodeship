@@ -1,20 +1,22 @@
+'use client';
+
 import React from 'react';
 // import Footer from "../Components/Footer"
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom"
-import { Helmet } from 'react-helmet-async';
+import Link from "next/link"
+// import { Helmet } from 'react-helmet-async';
 
 function Refund() {
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>Refund Policy - Codeship</title>
         <meta name="description" content="Learn about Codeship's refund policy, terms, and conditions for service cancellations and refunds." />
         <meta name="keywords" content="refund policy, cancellation policy, service refunds, codeship refunds" />
         <meta property="og:title" content="Refund Policy - Codeship" />
         <meta property="og:description" content="Understand Codeship's refund and cancellation policies for our services." />
         <meta property="og:type" content="website" />
-      </Helmet>
+      </Helmet> */}
       <header className="background_color_blue text-white py-5 mt-5 mb-0">
         <div className="container mt-3">
           <div className="row align-items-center">
@@ -139,7 +141,7 @@ function Refund() {
               </div>
             </a>
 
-            <Link to="/contact" className="text-decoration-none">
+            <Link href="/contact" className="text-decoration-none">
               <div className="bg-white p-4 rounded shadow-sm">
                 <span className="fs-5 fw-bold text-black">Website:</span>
                 <br />

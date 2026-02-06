@@ -1,6 +1,9 @@
+'use client';
+
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+import { getImageSrc } from "../utils/imageUtils";
 
 // Helper: Initial position based on animationDirection
 const getInitialPosition = (direction) => {
@@ -63,13 +66,12 @@ const Animation = ({
       style={{ willChange: "transform, opacity" }}
     >
       <img
-        src={imgSrc}
+        src={getImageSrc(imgSrc)}
         alt={altText}
         className="img-fluid p-1"
         style={{ pointerEvents: "none" }}
         onError={(e) => {
-          e.target.onerror = null;
-          e.target.src = "/fallback.png"; // Optional fallback image
+          e.target.style.display = "none";
         }}
       />
     </motion.div>

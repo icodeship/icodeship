@@ -1,10 +1,14 @@
+'use client';
+
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import "./animation.css";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 // Service card scroll animation
 export const useScrollAnimation = () => {
@@ -249,7 +253,8 @@ export const useVerticalToHorizontalScroll = () => {
       }, 500);
 
       return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        const rowTriggers = ScrollTrigger.getAll().filter((t) => t.trigger === row || (t.vars && t.vars.trigger === row.parentElement));
+        rowTriggers.forEach((t) => t.kill());
         gsap.killTweensOf(row);
         window.removeEventListener("resize", resizeHandler);
       };
@@ -298,34 +303,47 @@ export const animateCountUp = (el) => {
 };
 
 // Use core card animations
-export const   useCoreCardAnimations = (cardRefs) => {
+export const useCoreCardAnimations = (cardRefs) => {
   useEffect(() => {
-    if (typeof window !== "undefined" && cardRefs.current) {
+    if (typeof window !== "undefined" && cardRefs.current && cardRefs.current.length > 0) {
+      const triggers = [];
+
+      // Create animations for populated cards
       cardRefs.current.forEach((el) => {
         if (!el) return;
 
-        gsap.fromTo(
-          el,
-          { y: 100, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 75%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
+        const trigger = ScrollTrigger.create({
+          trigger: el,
+          start: "top 75%",
+          toggleActions: "play none none none",
+          onEnter: () => {
+            gsap.fromTo(
+              el,
+              { y: 100, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.out",
+              }
+            );
+          },
+          once: true,
+        });
+        
+        triggers.push(trigger);
       });
 
+      // Refresh ScrollTrigger to ensure proper calculations
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 200);
+
       return () => {
-        ScrollTrigger.getAll().forEach((t) => t.kill());
+        triggers.forEach((t) => t.kill());
       };
     }
-  }, [cardRefs]);
+  }, [cardRefs.current?.length]);
 };
 
 // Rename countUpOnScroll to useCountUpOnScroll
@@ -396,7 +414,6 @@ export const useScrollPopup = () => {
 
       setTimeout(() => {
         ScrollTrigger.refresh();
-        smoother?.scrollTrigger?.refresh?.();
       }, 150);
     }
   }, []);
@@ -406,6 +423,11 @@ export const useScrollPopup = () => {
 export const useImageSlideInAnimation = (containerRef) => {
   useEffect(() => {
     if (typeof window !== "undefined" && containerRef.current) {
+      // Disable animation on mobile devices
+      if (window.innerWidth < 768) {
+        return;
+      }
+
       const rows = containerRef.current.querySelectorAll(".capable_service_data");
 
       rows.forEach((row) => {
@@ -432,7 +454,15 @@ export const useImageSlideInAnimation = (containerRef) => {
       });
 
       return () => {
-        ScrollTrigger.getAll().forEach((st) => st.kill());
+        // Kill triggers for this container only
+        rows.forEach((row) => {
+          const allTriggers = ScrollTrigger.getAll();
+          allTriggers.forEach((t) => {
+            if (t.trigger === row) {
+              t.kill();
+            }
+          });
+        });
       };
     }
   }, [containerRef]);
@@ -468,7 +498,18 @@ export const useAnimateCardsOnScroll = (containerRef) => {
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      // Kill card-specific triggers only
+      if (container) {
+        const cards = container.querySelectorAll(".solution_desk_radius");
+        cards.forEach((card) => {
+          const allTriggers = ScrollTrigger.getAll();
+          allTriggers.forEach((t) => {
+            if (t.trigger === card) {
+              t.kill();
+            }
+          });
+        });
+      }
     };
   }, [containerRef]);
 };

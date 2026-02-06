@@ -1,6 +1,9 @@
+'use client';
+
 import { useState, useRef, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { gsap } from "gsap";
+import { getImageSrc } from "../utils/imageUtils";
 
 import Larrow from "../assets/images/Home/left_arrow.png";
 import Rarrow from "../assets/images/Home/right_arrow.png";
@@ -71,7 +74,7 @@ function Testimonial() {
                   <div className="d-flex gap-4 col-12" ref={imageRef}>
                     <div className="rounded-circle">
                       <img
-                        src={testimonial.img}
+                        src={getImageSrc(testimonial.img)}
                         alt={testimonial.name}
                         className="img-fluid rounded-circle w-75 "
                       />
@@ -89,13 +92,13 @@ function Testimonial() {
                   className="bg-transparent border-0  p-0"
                   onClick={() => handleChange("prev")}
                 >
-                  <img src={Larrow} alt="previous" />
+                  <img src={getImageSrc(Larrow)} alt="previous" />
                 </button>
                 <button
                   className="bg-transparent border-0 p-0"
                   onClick={() => handleChange("next")}
                 >
-                  <img src={Rarrow} alt="next" />
+                  <img src={getImageSrc(Rarrow)} alt="next" />
                 </button>
               </div>
             </div>
@@ -105,7 +108,7 @@ function Testimonial() {
           <div className="col-lg-5 d-flex align-items-center col-12 p-0 pe-1">
             <div ref={rightImageRef}>
               <img
-                src={testimonial.Banner}
+                src={getImageSrc(testimonial.Banner)}
                 alt="testimonial visual"
                 className="img-fluid mt-md-4 w-100 "
               />

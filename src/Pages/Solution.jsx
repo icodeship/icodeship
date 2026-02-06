@@ -1,14 +1,22 @@
+'use client';
+
 // React and React-related imports
 import { useRef, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { useRouter } from "next/navigation";
+// import { Helmet } from "react-helmet-async";
+import { getImageSrc } from "../utils/imageUtils";
 
 // React Bootstrap components
 import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
 // GSAP and Animation
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 //  Components
 // import Footer from "../Components/Footer";
@@ -45,6 +53,7 @@ import {
 } from "../Animation/animation";
 
 function Solution() {
+  const router = useRouter();
   const { text, image } = Banner_Data.solutions;
   const imgRef = useRef(null);
   const containerRef = useRef(null);
@@ -104,14 +113,14 @@ function Solution() {
 
   return (
     <div>
-      <MetaTags {...metaContent} />
-      <Helmet>
+      {/* <MetaTags {...metaContent} /> */}
+      {/* <Helmet>
         <title>Solutions - Codeship</title>
         <meta
           name="description"
           content="Discover Codeship's range of digital solutions designed to solve business challenges and drive growth."
         />
-      </Helmet>
+      </Helmet> */}
       <Banner text={text} image={image} />
       <Brands />
 
@@ -146,7 +155,7 @@ function Solution() {
             </div>
             <div className="col-lg-6 col-md-12 col-12">
               <div className="d-flex justify-content-center mt-md-5 mt-lg-5 mt-xl-0">
-                <img src={what_we_do} alt="What we do" className="img-fluid" />
+                <img src={getImageSrc(what_we_do)} alt="What we do" className="img-fluid" />
               </div>
             </div>
           </div>
@@ -200,7 +209,7 @@ function Solution() {
                         <Button
                           variant="outline-dark"
                           className="px-lg-4 py-2 font-size-18 font_weight_600 rounded-pill"
-                          onClick={() => navigate("/purchase-contact")}
+                          onClick={() => router.push("/purchase-contact")}
                         >
                           Purchase Product
                         </Button>
@@ -210,7 +219,7 @@ function Solution() {
                   <div className="col-lg-6 pb-5 pt-lg-5 pb-lg-5">
                     <div className="d-flex justify-content-lg-start justify-content-center mt-md-5">
                       <img
-                        src={item.image}
+                        src={getImageSrc(item.image)}
                         alt={item.alt}
                         className="img-fluid ms-xl-5 mx-md-5 px-3"
                       />
@@ -232,16 +241,16 @@ function Solution() {
           </p>
 
           <div className="map-wrapper">
-            <img src={Map} alt="layout placeholder" className="placeholder" />
+            <img src={getImageSrc(Map)} alt="layout placeholder" className="placeholder" />
             <img
               ref={greyRef}
-              src={Map}
+              src={getImageSrc(Map)}
               alt="Map Grey"
               className="map-img grayscale"
             />
             <img
               ref={colorRef}
-              src={Map}
+              src={getImageSrc(Map)}
               alt="Map Color"
               className="map-img colored"
             />
@@ -272,39 +281,39 @@ function Solution() {
             <div className="col-xl-7 col-lg-6 col-12 mt-5 mt-lg-0">
               <div className="d-flex flex-wrap justify-content-evenly mb-5">
                 <img
-                  src={Solution_workflow1}
+                  src={getImageSrc(Solution_workflow1)}
                   alt=""
                   className="img-fluid workflow_icon"
                 />
                 <img
-                  src={Solution_workflow2}
+                  src={getImageSrc(Solution_workflow2)}
                   alt=""
                   className="img-fluid workflow_icon"
                 />
                 <img
-                  src={Solution_workflow3}
+                  src={getImageSrc(Solution_workflow3)}
                   alt=""
                   className="img-fluid workflow_icon"
                 />
                 <img
-                  src={Solution_workflow4}
+                  src={getImageSrc(Solution_workflow4)}
                   alt=""
                   className="img-fluid workflow_icon"
                 />
               </div>
               <div className="d-flex flex-wrap justify-content-evenly">
                 <img
-                  src={Solution_workflow5}
+                  src={getImageSrc(Solution_workflow5)}
                   alt=""
                   className="img-fluid workflow_icon"
                 />
                 <img
-                  src={Solution_workflow6}
+                  src={getImageSrc(Solution_workflow6)}
                   alt=""
                   className="img-fluid workflow_icon"
                 />
                 <img
-                  src={Solution_workflow7}
+                  src={getImageSrc(Solution_workflow7)}
                   alt=""
                   className="img-fluid workflow_icon"
                 />

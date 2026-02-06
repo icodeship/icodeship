@@ -1,7 +1,10 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Solution_Data from "../Data/Solution_Data";
+import { getImageSrc } from "../utils/imageUtils";
 import { Container } from "react-bootstrap";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -131,13 +134,13 @@ const ScrollLockedCardStack = () => {
               <div className="col-12 col-lg-5 pb-md-0   d-flex flex-wrap  flex-row flex-md-column   gap-md-4 gap-0 justify-content-center align-items-lg-center">
                 <div className="d-flex justify-content-center d-lg-none">
                   <img
-                    src={item.image}
+                    src={getImageSrc(item.image)}
                     alt={item.heading}
                     className="img-fluid solution_system_img  "
                   />
                 </div>
                 <img
-                  src={item.image}
+                  src={getImageSrc(item.image)}
                   alt={item.heading}
                   className="img-fluid solution_system_img  d-none d-lg-block  "
                 />

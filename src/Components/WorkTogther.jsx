@@ -1,8 +1,11 @@
+'use client';
+
 import Swirl from "../assets/images/About/work_swirl.png";
 import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import useLetsTalk from "./Contact_page_link";
 import MetaTags from './MetaTags';
+import { getImageSrc } from "../utils/imageUtils";
 
 function WorkTogther() {
   const letsTalk = useLetsTalk();
@@ -26,7 +29,7 @@ function WorkTogther() {
         <Container className="">
           <div className="work_together_card w-100 overflow-hidden h-auto shadow bg-black position-relative  ">
             <img
-              src={Swirl}
+              src={getImageSrc(Swirl)}
               alt=""
               className="postion-absolute img-fluid about_core_icon"
             />

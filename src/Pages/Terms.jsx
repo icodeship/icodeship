@@ -1,20 +1,22 @@
+'use client';
+
 import React from 'react';
 // import Footer from "../Components/Footer";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom"
-import { Helmet } from 'react-helmet-async';
+import Link from "next/link"
+// import { Helmet } from 'react-helmet-async';
 
 function Terms() {
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>Terms of Service - Codeship</title>
         <meta name="description" content="Read Codeship's terms of service to understand our policies, user agreements, and service conditions." />
         <meta name="keywords" content="terms of service, user agreement, service conditions, codeship terms" />
         <meta property="og:title" content="Terms of Service - Codeship" />
         <meta property="og:description" content="Understand Codeship's terms of service, user agreements, and service conditions." />
         <meta property="og:type" content="website" />
-      </Helmet>
+      </Helmet> */}
       <header className="background_color_blue text-white py-5 mt-5 mb-0">
         <div className="container mt-3">
           <div className="row align-items-center">
@@ -328,7 +330,7 @@ function Terms() {
               </div>
             </a>
 
-            <Link to="/contact" className="text-decoration-none">
+            <Link href="/contact" className="text-decoration-none">
               <div className="bg-white p-4 rounded shadow-sm">
                 <span className="fs-5 fw-bold text-black">Website:</span>
                 <br />

@@ -1,4 +1,7 @@
+'use client';
+
 import { useEffect, useRef } from "react";
+import { getImageSrc } from "../utils/imageUtils";
 
 import veev from "../assets/images/Home/brands/veev.png";
 import virtual_auditor from "../assets/images/Home/brands/visual_auditor.png";
@@ -141,7 +144,7 @@ function Brands() {
           {[...Array(brandLogos.length * 2)].map((_, index) => (
             <div className="brand-slide p-4" key={index}>
               <img
-                src={brandLogos[index % brandLogos.length]}
+                src={getImageSrc(brandLogos[index % brandLogos.length])}
                 alt="Brand Logo"
                 className="brand_swiper object-fit-contain"
                 style={{ width: "150px", height: "auto", transition: "transform 0.3s ease" }}

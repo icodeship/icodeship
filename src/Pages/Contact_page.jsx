@@ -1,7 +1,9 @@
+'use client';
+
 // React and React-related imports
 import { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { useSearchParams } from "next/navigation";
+// import { Helmet } from "react-helmet-async";
 
 // React Bootstrap components
 import { Container } from "react-bootstrap";
@@ -41,6 +43,9 @@ import Contact_icon2 from "../assets/images/Home/insta_icon.png";
 import Contact_icon3 from "../assets/images/Home/linkdin_icon.png";
 import Contact_icon4 from "../assets/images/Home/twitter_icon.png";
 
+// Utils
+import { getImageSrc } from "../utils/imageUtils";
+
 // CSS
 import "../Pages/Contact_page.css";
 import AsyncPhoneInput from'../Components/phoneInput.jsx'
@@ -66,7 +71,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function Contact_page() {
-  const location = useLocation();
+  const searchParams = useSearchParams();
 
   const services = [
     "Web Development",
@@ -97,43 +102,25 @@ function Contact_page() {
   };
 
   useEffect(() => {
-    if (location.hash) {
-      const scrollToElement = () => {
-        const element = document.querySelector(location.hash);
-        if (element) {
-          element.scrollIntoView({ behavior: "auto" });
-        }
-      };
-
-      // If page fully loaded, scroll immediately
-      if (document.readyState === "complete") {
-        scrollToElement();
-      } else {
-        // Wait for full load (images/fonts)
-        window.addEventListener("load", scrollToElement);
-        // Cleanup listener
-        return () => window.removeEventListener("load", scrollToElement);
-      }
-    }
-
     const scrollToTarget = (selector) => {
       const target = document.querySelector(selector);
-
       if (target) {
         target.scrollIntoView({ behavior: "smooth" });
       }
     };
 
     const timeout = setTimeout(() => {
-      if (location.hash) {
-        scrollToTarget(location.hash); // handles #contactForm
-      } else if (location.state?.scrollToForm) {
-        scrollToTarget("#contactForm"); // handles state-based scroll
+      if (typeof window !== "undefined") {
+        if (window.location.hash) {
+          scrollToTarget(window.location.hash);
+        } else if (searchParams.get("scrollToForm")) {
+          scrollToTarget("#contactForm");
+        }
       }
-    }, 100); // slight delay to ensure content is ready
+    }, 100);
 
     return () => clearTimeout(timeout);
-  }, [location]);
+  }, [searchParams]);
 
   const containerRef = useRef(null);
   const [showSplash, setShowSplash] = useState(false);
@@ -210,7 +197,7 @@ function Contact_page() {
                           aria-label="Facebook"
                         >
                           <img
-                            src={Contact_icon1}
+                            src={getImageSrc(Contact_icon1)}
                             alt="Facebook"
                             className="img-fluid"
                           />
@@ -220,7 +207,7 @@ function Contact_page() {
                           aria-label="Instagram"
                         >
                           <img
-                            src={Contact_icon2}
+                            src={getImageSrc(Contact_icon2)}
                             alt="Instagram"
                             className="img-fluid"
                           />
@@ -230,14 +217,14 @@ function Contact_page() {
                           aria-label="LinkedIn"
                         >
                           <img
-                            src={Contact_icon3}
+                            src={getImageSrc(Contact_icon3)}
                             alt="LinkedIn"
                             className="img-fluid"
                           />
                         </a>
                         <a href="https://x.com/ship_code20427?t=eCBOb7HeomgEwx2GqcJBoQ&s=09" aria-label="Other social link">
                           <img
-                            src={Contact_icon4}
+                            src={getImageSrc(Contact_icon4)}
                             alt="Other social link"
                             className="img-fluid"
                           />
@@ -418,7 +405,7 @@ function Contact_page() {
             <div className="card border_shadow p-3 Contact_card rounded-5">
               <div className="ms-2 mt-2">
                 <div className="mb-5">
-                  <img src={Location_icon} alt="" className="about_core_icon" />
+                  <img src={getImageSrc(Location_icon)} alt="" className="about_core_icon" />
                 </div>
                 <p className="font-size-24 font_weight_700 font_color_light_blue">
                   Visit Us
@@ -438,7 +425,7 @@ function Contact_page() {
             <div className="card border_shadow p-3 Contact_card rounded-5">
               <div className="ms-2 mt-2">
                 <div className="mb-5">
-                  <img src={Msg_icon} alt="" className="about_core_icon" />
+                  <img src={getImageSrc(Msg_icon)} alt="" className="about_core_icon" />
                 </div>
                 <p className="font-size-24 font_weight_700 font_color_light_blue">
                   Chat Support
@@ -458,7 +445,7 @@ function Contact_page() {
             <div className="card border_shadow p-3 Contact_card rounded-5">
               <div className="ms-2 mt-2">
                 <div className="mb-5">
-                  <img src={Call_icon} alt="" className="about_core_icon" />
+                  <img src={getImageSrc(Call_icon)} alt="" className="about_core_icon" />
                 </div>
                 <p className="font-size-24 font_weight_700 font_color_light_blue">
                   Speak with our friendly team

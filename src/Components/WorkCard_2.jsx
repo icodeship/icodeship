@@ -1,6 +1,9 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from "react";
 import { Workdata_2 } from "../Data/WorkData";
 import { animateWorkCard } from "../Animation/animation";
+import { getImageSrc } from "../utils/imageUtils";
 import "../Pages/Home.css";
 import { ChevronRight } from "lucide-react";
 import Modal from "./Modal";
@@ -30,7 +33,7 @@ const WorkCard_2 = ({ index }) => {
       <div className="col-md-6" ref={cardRef}>
         <img
           ref={imgRef}
-          src={data.img}
+          src={getImageSrc(data.img)}
           alt={data.title}
           className="img-fluid mt-lg-5 mt-5 cursor-pointer"
           style={{ opacity: 0 ,  cursor: "pointer" }}

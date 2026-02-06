@@ -1,6 +1,9 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from "react";
 import { Workdata_1 } from "../Data/WorkData";
 import { animateWorkCard } from "../Animation/animation";
+import { getImageSrc } from "../utils/imageUtils";
 import "../Pages/Home.css";
 import Modal from "./Modal";
 
@@ -31,7 +34,7 @@ const WorkCard_1 = ({ index }) => {
             style={{ cursor: "pointer" }}
           >
             <img
-              src={data.img}
+              src={getImageSrc(data.img)}
               alt={data.title}
               className="img-fluid w-100 pt-lg-5"
             />

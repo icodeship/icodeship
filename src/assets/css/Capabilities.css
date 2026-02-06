@@ -1,13 +1,17 @@
 .capable_shape1 {
   top: 20%;
   z-index: -1;
+  max-width: 100%;
 }
 .capable_service_data {
   /* padding-top: 10%; */
+  position: relative;
+  overflow: hidden;
 }
 .work_togehter_shape {
   bottom: -10%;
   left: 40%;
+  max-width: 100%;
 }
 .why_choose_us_text {
   color: #888888;
@@ -21,11 +25,31 @@
   top: 40%;
 }
 .capable_service_dev_card_text {
-  max-width: 408px;
+  max-width: 100%;
 }
 .capable_service_dev_card_left2 {
   left: 10%;
   top: 70%;
+}
+
+/* Prevent horizontal overflow */
+* {
+  box-sizing: border-box;
+}
+
+.capable_service_dev_card_left,
+.capable_service_dev_card_right,
+.capable_service_dev_card_center,
+.capable_service_dev_card_left2 {
+  max-width: calc(100% - 20px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body,
+html {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Tablet and smaller */
@@ -36,11 +60,33 @@
   }
 }
 
-/* Mobile devices */
 @media (max-width: 640px) {
   .capable_service_dev_card_left2 {
     left: 2%;
     top: 80%;
+  }
+  .capable_service_dev_card_left {
+    left: 2%;
+  }
+  .capable_service_dev_card_right {
+    right: 2%;
+  }
+  .capable_service_dev_card_center {
+    right: 2%;
+  }
+  .capable_service_card .card {
+    width: 100% !important;
+  }
+  .capable_card {
+    width: 100% !important;
+  }
+  .work_with_us_card {
+    width: 100% !important;
+  }
+  .slide-img {
+    width: 100% !important;
+    max-width: 100%;
+    overflow: hidden;
   }
 }
 
@@ -56,38 +102,50 @@
   }
   /* thrid box */
   .capable_service_dev_card_left2 {
-    left: 0%;
+    left: 5%;
     top: 58%;
   }
   /* first box */
   .capable_service_dev_card_left {
-    left: 10%;
+    left: 5%;
   }
   /* second box */
   .capable_service_dev_card_right {
-    right: 0%;
+    right: 5%;
     top: 30%;
+  }
+  .capable_service_card .card {
+    width: 100% !important;
+  }
+  .capable_card {
+    width: 100% !important;
   }
 }
 @media  (max-width: 769px) {
   /* fouth box */
   .capable_service_dev_card_center {
     top: 95%;
-    right: 10%;
+    right: 5%;
   }
   /* thrid box */
   .capable_service_dev_card_left2 {
-    left: 0%;
+    left: 2%;
     top: 63%;
   }
   /* first box */
   .capable_service_dev_card_left {
-    left: 10%;
+    left: 2%;
   }
   /* second box */
   .capable_service_dev_card_right {
-    right: 0%;
+    right: 2%;
     top: 31%;
+  }
+  .capable_service_card .card {
+    width: 100% !important;
+  }
+  .capable_card {
+    width: 100% !important;
   }
 }
 .margin_top_20 {
@@ -103,12 +161,18 @@
 }
 .software_container {
   margin-bottom: 21%;
+  position: relative;
+  overflow: hidden;
 }
 .capable_card {
   height: 320px;
+  width: 100%;
+  overflow: hidden;
 }
 .work_with_us_card {
   height: 300px;
+  width: 100%;
+  overflow: hidden;
 }
 
 @media (min-width: 375px) and (max-width:430px) {
@@ -117,17 +181,25 @@
   }
   .capable_service_card .card {
     height: 250px;
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
   }
   .capable_service_card_text {
-    max-width: 330px;
+    max-width: 100%;
   }
   .capable_card {
     height: 220px;
-    width: auto;
+    width: 100%;
   }
   .work_with_us_card {
     height: 250px;
+    width: 100%;
+  }
+  .slide-img {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
   }
 }
 @media (min-width: 431px) and (max-width: 786px) {
@@ -136,17 +208,25 @@
   }
   .capable_service_card .card {
     height: 250px;
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
   }
   .capable_service_card_text {
-    max-width: 330px;
+    max-width: 100%;
   }
   .capable_card {
     height: 220px;
-    width: auto;
+    width: 100%;
   }
   .work_with_us_card {
     height: 250px;
+    width: 100%;
+  }
+  .slide-img {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
   }
 }
 @media (min-width: 787px) and (max-width: 1024px) {
@@ -155,16 +235,19 @@
   }
   .capable_service_card .card {
     height: 250px;
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
   }
   .capable_service_card_text {
-    max-width: 400px;
+    max-width: 100%;
   }
   .capable_card {
     height: 190px;
+    width: 100%;
   }
   .work_with_us_card {
     height: 200px;
+    width: 100%;
   }
 }
 @media (min-width: 1281px) and (max-width: 1550px) {
@@ -173,12 +256,50 @@
   }
   .capable_card {
     height: 230px;
+    width: 100%;
   }
   .work_with_us_card {
     height: 250px;
-    width: 380px;
+    width: 100%;
+    max-width: 380px;
   }
 }
 .privacy_card {
   height: 150px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Global section overflow control */
+section {
+  overflow-x: hidden;
+  position: relative;
+}
+
+.position-relative {
+  /* Removed generic overflow-x to prevent clipping */
+}
+
+/* Only apply overflow to specific containers that need it */
+.capable_service_data {
+  overflow-x: hidden;
+}
+
+.capable_service_data .col-12,
+.capable_service_data .col-lg-6,
+.capable_service_data .col-md-6 {
+  overflow-x: hidden;
+}
+
+.slide-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  overflow: hidden;
+}
+
+/* Software container for zigzag animation - DO NOT clip absolutely positioned items */
+.software_container {
+  position: relative;
+  overflow: visible;
 }

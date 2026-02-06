@@ -1,10 +1,12 @@
+'use client';
+
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import Footer from "../Components/Footer";
 import "../Pages/Capabilities.css";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { Helmet } from 'react-helmet-async';
+import Link from "next/link";
+// import { Helmet } from 'react-helmet-async';
 
 const Privacy = () => {
   const [activeSection, setActiveSection] = useState("");
@@ -54,14 +56,14 @@ const Privacy = () => {
 
   return (
     <div className="bg-light min-vh-100">
-      <Helmet>
+      {/* <Helmet>
         <title>Privacy Policy - Codeship</title>
         <meta name="description" content="Read Codeship's privacy policy to understand how we collect, use, and protect your personal information." />
         <meta name="keywords" content="privacy policy, data protection, personal information, codeship privacy" />
         <meta property="og:title" content="Privacy Policy - Codeship" />
         <meta property="og:description" content="Learn about how Codeship protects your privacy and handles your personal information." />
         <meta property="og:type" content="website" />
-      </Helmet>
+      </Helmet> */}
       {/* Header */}
       <header className="background_color_blue text-white py-5 mt-5 mb-0">
         <div className="container mt-3">
@@ -504,7 +506,7 @@ const Privacy = () => {
               </div>
             </a>
 
-            <Link to="/contact" className="text-decoration-none">
+            <Link href="/contact" className="text-decoration-none">
               <div className="bg-white p-4 rounded shadow-sm">
                 <span className="fs-5 fw-bold text-black">Website:</span>
                 <br />
