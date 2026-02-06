@@ -8,7 +8,6 @@ import { Helmet } from "react-helmet-async";
 import { ChevronRight } from "lucide-react";
 
 // GSAP and Animation
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { useImageSlideInAnimation } from "../Animation/animation";
 
 // Components
@@ -67,16 +66,12 @@ function Capabilities() {
       const target = document.getElementById(hash.substring(1));
 
       const scrollToTarget = () => {
-        const smoother = ScrollSmoother.get();
-
-        if (smoother && target) {
-          smoother.scrollTo(target, true, "top top");
-        } else if (target) {
+        if (target) {
           target.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       };
 
-      // Delay to let ScrollSmoother + DOM finish mounting
+      // Delay to let DOM finish mounting
       const timeout = setTimeout(scrollToTarget, 600);
 
       return () => clearTimeout(timeout);

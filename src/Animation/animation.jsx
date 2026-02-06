@@ -1,11 +1,10 @@
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { useGSAP } from "@gsap/react";
 import "./animation.css";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger);
 
 // Service card scroll animation
 export const useScrollAnimation = () => {
@@ -359,9 +358,6 @@ export const useScrollPopup = () => {
 
       if (!elements.length) return;
 
-      const smoother = ScrollSmoother.get();
-      const validScroller = smoother ? smoother.scrollContainer : undefined;
-
       elements.forEach((el) => {
         if (!(el instanceof Element)) return;
 
@@ -384,7 +380,6 @@ export const useScrollPopup = () => {
         ScrollTrigger.create({
           trigger: el,
           start: "top 70%",
-          scroller: validScroller,
           onEnter: () => {
             gsap.to(el, {
               opacity: 1,

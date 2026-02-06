@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Routes,
   Route,
@@ -43,7 +43,6 @@ const ClientOnlyHeader = () => {
 
 const PageWrapper = ({ children,triggerReload }) => {
   const location = useLocation();
-  const smootherRef = useRef(null);
   const isSSR = typeof window === "undefined";
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -61,19 +60,19 @@ const PageWrapper = ({ children,triggerReload }) => {
       setLoading(true);
       const timeout = setTimeout(() => {
         setLoading(false);
-        const form = document.querySelector("#contactForm");
 
-        if (location.state?.scrollToForm && form) {
-          smootherRef.current?.scrollTo(form, true);
+        if (location.state?.scrollToForm) {
+          const form = document.querySelector("#contactForm");
+          if (form) {
+            form.scrollIntoView({ behavior: 'smooth' });
+          }
         } else {
-          smootherRef.current?.scrollTo(0, true);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         if (typeof window !== 'undefined' && window.ScrollTrigger) {
           window.ScrollTrigger.refresh();
         }
-
-        smootherRef.current?.refresh();
       }, 300);
 
       return () => clearTimeout(timeout);
@@ -83,93 +82,40 @@ const PageWrapper = ({ children,triggerReload }) => {
   useEffect(() => {
     if (!mounted) return;
 
-    let gsap, ScrollTrigger, ScrollSmoother;
+    let gsap, ScrollTrigger;
     let killed = false;
-    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     import("gsap").then((mod) => {
       gsap = mod.gsap;
-      return Promise.all([
-        import("gsap/ScrollTrigger"),
-        import("gsap/ScrollSmoother"),
-      ]);
-    }).then(([st, ss]) => {
+      return import("gsap/ScrollTrigger");
+    }).then((st) => {
       if (killed) return;
 
       ScrollTrigger = st.ScrollTrigger;
-      ScrollSmoother = ss.ScrollSmoother;
-      gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+      gsap.registerPlugin(ScrollTrigger);
 
-      const wrapper = document.querySelector("#smooth-wrapper");
-      const content = document.querySelector("#smooth-content");
+      // Refresh ScrollTrigger on resize/layout shift
+      const resizeObserver = new ResizeObserver(() => {
+        ScrollTrigger.refresh();
+      });
 
-      if (!wrapper || !content) {
-        console.warn("Smooth scroll wrapper/content not found");
-        return;
-      }
+      const bodyEl = document.body;
+      if (bodyEl) resizeObserver.observe(bodyEl);
 
-      if (!ScrollSmoother.get()) {
-        // Slight delay ensures DOM/layout is ready
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            smootherRef.current = ScrollSmoother.create({
-              wrapper,
-              content,
-              smooth: 2,
-              effects: true,
-              normalizeScroll: true,
-              ignoreMobileResize: true,
-            });
+      return () => {
+        killed = true;
+        resizeObserver.disconnect();
 
-            console.log("ScrollSmoother initialized");
-            ScrollTrigger.refresh();
-            smootherRef.current.refresh();
-          }, 1000); // Adjust if needed
-        });
-      } else {
-        console.log("ScrollSmoother skipped (mobile or already initialized)");
-      }
+        if (typeof window !== "undefined") {
+          ScrollTrigger.getAll().forEach(trigger => trigger.kill(true));
+        }
+      };
     });
-
-    // Refresh smoother on resize/layout shift
-    const resizeObserver = new ResizeObserver(() => {
-      if (smootherRef.current) {
-        smootherRef.current.refresh();
-      }
-    });
-
-    const wrapperEl = document.querySelector("#smooth-wrapper");
-    if (wrapperEl) resizeObserver.observe(wrapperEl);
-
-    return () => {
-      killed = true;
-      resizeObserver.disconnect();
-
-      if (typeof window !== "undefined") {
-        import("gsap/ScrollTrigger").then((st) => {
-          st.ScrollTrigger.getAll().forEach(trigger => trigger.kill(true));
-        });
-
-        import("gsap/ScrollSmoother").then((ss) => {
-          const smoother = ss.ScrollSmoother.get();
-          if (smoother) {
-            smoother.kill();
-            console.log("ScrollSmoother killed");
-          }
-        });
-
-        smootherRef.current = null;
-      }
-    };
   }, [mounted]);
 
   return (
     <>
-      <div id="smooth-wrapper">
-        <div id="smooth-content">
-        {(loading || triggerReload) ? <Loader /> : children}
-        </div>
-      </div>
+      {(loading || triggerReload) ? <Loader /> : children}
       <ScrollToTopButton />
     </>
   );

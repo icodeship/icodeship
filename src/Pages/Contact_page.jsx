@@ -15,9 +15,8 @@ import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// GSAP and ScrollSmoother for animations
+// GSAP for animations
 import gsap from "gsap";
-import ScrollSmoother from "gsap/ScrollSmoother";
 
 // components
 // import Footer from "../Components/Footer.jsx";
@@ -48,7 +47,7 @@ import AsyncPhoneInput from'../Components/phoneInput.jsx'
 import 'react-phone-input-2/lib/style.css';
 
 // Register GSAP plugin
-gsap.registerPlugin(ScrollSmoother);
+// gsap.registerPlugin(ScrollSmoother);
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Enter a company name"),
@@ -119,12 +118,9 @@ function Contact_page() {
 
     const scrollToTarget = (selector) => {
       const target = document.querySelector(selector);
-      const smoother = ScrollSmoother.get();
 
-      if (target && smoother) {
-        smoother.scrollTo(target, true); // smooth scroll with GSAP
-      } else if (target) {
-        target.scrollIntoView({ behavior: "smooth" }); // fallback
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
       }
     };
 

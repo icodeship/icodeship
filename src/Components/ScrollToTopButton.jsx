@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import React from "react";
 
 export const SmoothContext = React.createContext(null);
@@ -9,15 +8,14 @@ const ScrollToTopButton = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const smoother = ScrollSmoother.get();
-
     const checkScroll = () => {
-      const scrollY = smoother ? smoother.scrollTop() : window.scrollY;
-      setVisible(scrollY > 300 && window.innerWidth >= 768);
+      setVisible(window.scrollY > 300 && window.innerWidth >= 768);
     };
 
     checkScroll(); // Initial check
-    const interval = setInterval(checkScroll, 200); // Poll scrollTop
+
+    const handleScroll = () => checkScroll();
+    window.addEventListener('scroll', handleScroll);
 
     const handleResize = () => {
       checkScroll(); // Re-check visibility on resize
@@ -26,18 +24,13 @@ const ScrollToTopButton = () => {
     window.addEventListener('resize', handleResize);
 
     return () => {
-      clearInterval(interval);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   const scrollToTop = () => {
-    const smoother = ScrollSmoother.get();
-    if (smoother) {
-      smoother.scrollTo(0, true);
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
